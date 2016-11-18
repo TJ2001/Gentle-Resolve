@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+//THings to work on: push:
+//1. Pop each output from the Vision arraylist (that will be created from the CreateActivity) to a list
+
 public class ManifestActivity extends AppCompatActivity {
     private TextView mPledgeView;
 
