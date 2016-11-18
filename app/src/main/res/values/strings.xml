@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GentleResolve</string>
+    <string name="gentle_resolve">Gentle Resolve</string>
+    <string name="achievements">Achievements</string>
+    <string name="start">Start</string>
+    <string name="important_promises">The most important promises are the ones we make to ourselves.</string>
 </resources>
