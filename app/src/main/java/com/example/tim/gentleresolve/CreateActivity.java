@@ -18,7 +18,7 @@ public class CreateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manifest);
+        setContentView(R.layout.activity_create);
         ButterKnife.bind(this);
 
         mManifestButton.setOnClickListener(new View.OnClickListener() {
