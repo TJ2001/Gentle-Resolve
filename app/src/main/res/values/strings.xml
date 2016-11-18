@@ -4,4 +4,5 @@
     <string name="achievements">Achievements</string>
     <string name="start">Start</string>
     <string name="important_promises">The most important promises are the ones we make to ourselves.</string>
+    <string name="agreeTo">"I agree to take the first steps to "</string>
 </resources>

@@ -8,19 +8,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-Things to do:
-    1. Put each input into arraylist and send it to ManifestActivity.java
-    2. Create a drop-down button.
-    3. Put a listener on the button.
-    4. Send option data from button to ManifestActivity.java.
+//Things to do:
+//    1. Put each input into arraylist and send it to ManifestActivity.java
+//    2. Create a drop-down button.
+//    3. Put a listener on the button.
+//    4. Send option data from button to ManifestActivity.java.
 
 
 public class CreateActivity extends AppCompatActivity {
     @Bind(R.id.manifestButton) Button mManifestButton;
     @Bind(R.id.vision) EditText mVision;
+    private ArrayList<String> visions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +35,16 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String vision = mVision.getText().toString();
+//                mVision.setText("");    (For ArrayList implementation)
 
                 if ((vision.length() < 3)) {
                     Toast.makeText(CreateActivity.this, "Our visions need to be more detailed. Good effort, but please try again.", Toast.LENGTH_LONG).show();
                     }else{
+//                    visions.add(vision);
+//                    Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
+//                    intent.putStringArrayListExtra("visions", visions);
+//                    startActivity(intent); (For ArrayList implementation, delete the next three lines.)
+
                     Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
                     intent.putExtra("vision", vision);
                     startActivity(intent);
