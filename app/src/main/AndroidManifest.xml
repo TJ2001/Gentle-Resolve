@@ -17,8 +17,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ManifestActivity" />
-        <activity android:name=".CreateActivity"></activity>
+        <activity android:name=".CreateActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tim.gentleresolve.StartActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".ManifestActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tim.gentleresolve.ManifestActivity">
+            </meta-data>
+        </activity>
+
     </application>
 
 </manifest>
