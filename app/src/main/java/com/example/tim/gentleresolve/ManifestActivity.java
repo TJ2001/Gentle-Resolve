@@ -16,6 +16,6 @@ public class ManifestActivity extends AppCompatActivity {
         mPledgeView = (TextView) findViewById(R.id.pledgeView);
         Intent intent = getIntent();
         String pledge = intent.getStringExtra("vision");
-        mPledgeView.setText("I agree to take the first steps to" + pledge.);
+        mPledgeView.setText("I agree to take the first steps to" + pledge + ".");
     }
 }
