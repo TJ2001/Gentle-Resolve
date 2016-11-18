@@ -18,14 +18,13 @@ public class CreateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manifest);
+        setContentView(R.layout.activity_create);
         ButterKnife.bind(this);
 
         mManifestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String vision = mVision.getText().toString();
-//                mPledge.setText("");
 
                 if ((vision.length() < 3)) {
                     Toast.makeText(CreateActivity.this, "Our visions need to be more detailed. Good effort, but please try again.", Toast.LENGTH_LONG).show();
@@ -34,7 +33,6 @@ public class CreateActivity extends AppCompatActivity {
                     intent.putExtra("vision", vision);
                     startActivity(intent);
                     }
-
 
             }
         });
