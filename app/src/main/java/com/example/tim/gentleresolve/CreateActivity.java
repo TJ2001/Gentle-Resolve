@@ -43,6 +43,7 @@ public class CreateActivity extends AppCompatActivity {
                 if ((diamond.length() < 3)) {
                     Toast.makeText(CreateActivity.this, "Our diamonds need to be more detailed. Good effort, but please try again.", Toast.LENGTH_LONG).show();
                     }else{
+                    mDiamond.setText("");
                     Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
                     intent.putStringArrayListExtra("diamonds", diamonds);
                     Log.v(TAG, "intent: " + intent);
