@@ -5,22 +5,6 @@
     android:layout_height="250dp"
     tools:context=".CreateActivity">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        android:text="New Text"
-        android:id="@+id/pledgeView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="40sp"
-        android:textColor="@android:color/black"
-        android:shadowColor="@color/purple"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3"
-        android:textStyle="bold" />
-
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

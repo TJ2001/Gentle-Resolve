@@ -35,7 +35,7 @@
         android:layout_marginRight="30dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="" android:background="@drawable/back"
-        android:id="@+id/vision"
+        android:id="@+id/diamond"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
