@@ -46,6 +46,7 @@ public class CreateActivity extends AppCompatActivity {
                     mDiamond.setText("");
                     Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
                     intent.putStringArrayListExtra("diamonds", diamonds);
+                    intent.putExtra("diamond", diamond);
                     Log.v(TAG, "intent: " + intent);
                     startActivity(intent);
                     }
