@@ -39,6 +39,8 @@ public class ManifestActivity extends AppCompatActivity {
         Log.v(TAG, "intent: " + diamonds);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, diamonds);
         mListView.setAdapter(adapter);
+        diamonds.add("First Item");
+        diamonds.add("secoond Item");
 
 //        Typeface champageFont = Typeface.createFromAsset(getAssets(), "fonts/cac_champagne.ttf");
 //        mListView.setTypeface(champageFont);
