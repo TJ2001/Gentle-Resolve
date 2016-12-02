@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import butterknife.Bind;
@@ -14,6 +16,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.achieveButton) Button mAchieveButton;
     @Bind(R.id.startButton) Button mStartButton;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +26,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
         mAchieveButton.setOnClickListener(this);
         mStartButton.setOnClickListener(this);
+
     }
 
     @Override

@@ -22,8 +22,8 @@ import butterknife.ButterKnife;
 
 public class CreateActivity extends AppCompatActivity {
     @Bind(R.id.manifestButton) Button mManifestButton;
-    @Bind(R.id.vision) EditText mVision;
-    private ArrayList<String> visions = new ArrayList<>();
+    @Bind(R.id.diamond) EditText mDiamond;
+    private ArrayList<String> diamonds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +34,19 @@ public class CreateActivity extends AppCompatActivity {
         mManifestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String vision = mVision.getText().toString();
-//                mVision.setText("");    (For ArrayList implementation)
+                String diamond = mDiamond.getText().toString();
+//                mDiamond.setText("");    (For ArrayList implementation)
 
-                if ((vision.length() < 3)) {
-                    Toast.makeText(CreateActivity.this, "Our visions need to be more detailed. Good effort, but please try again.", Toast.LENGTH_LONG).show();
+                if ((diamond.length() < 3)) {
+                    Toast.makeText(CreateActivity.this, "Our diamonds need to be more detailed. Good effort, but please try again.", Toast.LENGTH_LONG).show();
                     }else{
-//                    visions.add(vision);
-//                    Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
-//                    intent.putStringArrayListExtra("visions", visions);
-//                    startActivity(intent); (For ArrayList implementation, delete the next three lines.)
+                    diamonds.add(diamond);
+                    Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
+                    intent.putStringArrayListExtra("diamonds", diamonds);
+                    startActivity(intent); (For ArrayList implementation, delete the next three lines.)
 
                     Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
-                    intent.putExtra("vision", vision);
+                    intent.putExtra("diamond", diamond);
                     startActivity(intent);
                     }
 
