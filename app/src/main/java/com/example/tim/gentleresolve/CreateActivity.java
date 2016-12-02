@@ -3,6 +3,7 @@ package com.example.tim.gentleresolve;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,8 @@ public class CreateActivity extends AppCompatActivity {
     @Bind(R.id.vision) EditText mVision;
     private ArrayList<String> visions = new ArrayList<>();
 
+    public static final String TAG = CreateActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,20 +38,17 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String vision = mVision.getText().toString();
-//                mVision.setText("");    (For ArrayList implementation)
-
+                visions.add(vision);
+                Log.v(TAG, "visions: " + visions);
                 if ((vision.length() < 3)) {
                     Toast.makeText(CreateActivity.this, "Our visions need to be more detailed. Good effort, but please try again.", Toast.LENGTH_LONG).show();
-                    }else{
-//                    visions.add(vision);
-//                    Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
-//                    intent.putStringArrayListExtra("visions", visions);
-//                    startActivity(intent); (For ArrayList implementation, delete the next three lines.)
-
+                }else{
+                    mVision.setText("");
                     Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
-                    intent.putExtra("vision", vision);
+                    intent.putStringArrayListExtra("visions", visions);
+                    Log.v(TAG, "intent: " + intent);
                     startActivity(intent);
-                    }
+                }
 
             }
         });
