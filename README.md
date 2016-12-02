@@ -24,7 +24,7 @@ _The purpose of this application will be to exemplify things taught in the Epico
 |User will be able set goals. | User can type in edit box and click button to send data. | The data will be sent from one activity to another. |
 |Later on, user will be able to customize input setting. | Drop-down select box will be made available for the user to pick font settings.  | The font will change for the output page. |
 |User will be able to push a button to get support from the community. | API call to Meetup.  | Data output will be received from Meetup and displayed to the user. |
-|This a project in progress and more things will be incorporated according to time resources. | ... | ... |
+|This is a project in progress and more things will be incorporated according to time resources. | ... | ... |
 
 ## Known Bugs
 
@@ -32,7 +32,7 @@ _It's mostly bug free. Older browsers might have issues._
 
 ## Support and contact details
 
-_Feel free to contact TJ2001 to the project by Github or snail-mail via Epicodus._
+_Feel free to contact TJ2001 via Github or snail-mail via Epicodus._
 
 ## Technologies Used
 
