@@ -1,8 +1,8 @@
-package com.example.tim.gentleresolve;
+package com.example.tim.gentleresolve.services;
 
-import android.graphics.Movie;
 import android.util.Log;
 
+import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.models.Meetup;
 
 import org.json.JSONArray;
@@ -16,7 +16,6 @@ import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
 
 /**
  * Created by Guest on 12/2/16.
