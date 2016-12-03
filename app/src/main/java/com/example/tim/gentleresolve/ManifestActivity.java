@@ -25,7 +25,6 @@ import butterknife.ButterKnife;
 public class ManifestActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.visionListView) ListView mListView;
     @Bind(R.id.doneButton) Button mDoneButton;
-    @Bind(R.id.shareButton) Button mShareButton;
 
     private List<String> visions = new ArrayList<>();
 
@@ -65,7 +64,6 @@ public class ManifestActivity extends AppCompatActivity implements View.OnClickL
                 ViewHolder viewHolder = new ViewHolder();
                 viewHolder.itemTextView = (TextView) convertView.findViewById(R.id.itemTextView);
                 viewHolder.doneButton = (Button) convertView.findViewById(R.id.doneButton);
-                viewHolder.shareButton = (Button) convertView.findViewById(R.id.shareButton);
 
                 convertView.setTag(viewHolder);
             }
@@ -94,15 +92,12 @@ public class ManifestActivity extends AppCompatActivity implements View.OnClickL
         ImageView thumbnail;
         TextView itemTextView;
         Button doneButton;
-        Button shareButton;
     }
 
     @Override
     public void onClick(View view){
         if(view == mDoneButton) {
             Toast.makeText(ManifestActivity.this, "This button is a work in progress.", Toast.LENGTH_LONG).show();
-        } else if (view == mShareButton){
-            startActivity(new Intent(ManifestActivity.this, CreateActivity.class));
         }
     }
 }
