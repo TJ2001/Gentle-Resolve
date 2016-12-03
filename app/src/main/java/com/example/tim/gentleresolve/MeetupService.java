@@ -3,6 +3,8 @@ package com.example.tim.gentleresolve;
 import android.graphics.Movie;
 import android.util.Log;
 
+import com.example.tim.gentleresolve.models.Meetup;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,21 +61,11 @@ public class MeetupService {
                 String groupName = resultsJSON.getString("name");
                 String description = resultsJSON.getString("description");
                 String photoLink = resultsJSON.getString("photo_link");
-
+                String organizer = resultsJSON.getJSONObject("organizer")
+                        .getString("name");
                 String city = resultsJSON.getString("city");
-                String state = resultsJSON.getString("state");
-                String zip = resultsJSON.getString("zip")
+                String link = resultsJSON.getString("link");
 
-                String Overview = resultsJSON.getString("overview");
-                String releaseDate = resultsJSON.getString("release_date");
-                String voteAverage = resultsJSON.getString("vote_average");
-                String meetupId = resultsJSON.getString("id");
-                ArrayList<String> genreId = new ArrayList<>();
-                JSONArray genreList = resultsJSON.getJSONArray("genre_ids");
-
-                for (int j = 0; j < genreList.length(); j++) {
-                    genreId.add(genreList.getString(j));
-                }
                 Meetup newMeetup = new Meetup(Poster_path, Overview, releaseDate, genreId, Title, voteAverage, meetupId);
                 meetups.add(newMeetup);
             }

@@ -12,5 +12,3 @@ public class Constants {
     public static final String RADIUS = "radius";
     public static final String RESULT_LIMIT = "page";
 }
-
-3b873d3b7e1eea2006b7d344604eb4e7
