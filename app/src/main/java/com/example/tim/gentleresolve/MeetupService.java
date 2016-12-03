@@ -66,14 +66,14 @@ public class MeetupService {
                 String city = resultsJSON.getString("city");
                 String link = resultsJSON.getString("link");
 
-                Meetup newMeetup = new Meetup(Poster_path, Overview, releaseDate, genreId, Title, voteAverage, meetupId);
+                Meetup newMeetup = new Meetup(groupName, description, photoLink, organizer, city, link);
                 meetups.add(newMeetup);
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        Log.v("meetup", "Meetup ArrayList: " + meetups);
         return meetups;
     }
 }
