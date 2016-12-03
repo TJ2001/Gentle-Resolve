@@ -7,23 +7,18 @@
         android:id="@+id/itemTextView"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_toLeftOf="@+id/doneButton"
+        android:layout_toStartOf="@+id/doneButton"
+        android:layout_alignBottom="@+id/doneButton" />
 
     <Button
-        android:id="@+id/doneButton"
-        android:layout_width="190dp"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
-        android:layout_below="@+id/itemTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:id="@+id/shareButton"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:text="Share"
-        android:layout_alignTop="@+id/doneButton"
+        android:id="@+id/doneButton"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

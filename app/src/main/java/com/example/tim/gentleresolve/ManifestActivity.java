@@ -22,12 +22,10 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-//THings to work on: push:
-//1. Change TextView to GridView and pop each visions arraylist element as a seperate clickable item.
-
-public class ManifestActivity extends AppCompatActivity {
+public class ManifestActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.visionListView) ListView mListView;
-//    private GridView<String> Visions = new ArrayList<>();
+    @Bind(R.id.doneButton) Button mDoneButton;
+    @Bind(R.id.shareButton) Button mShareButton;
 
     private List<String> visions = new ArrayList<>();
 
@@ -43,23 +41,11 @@ public class ManifestActivity extends AppCompatActivity {
 
         visions = intent.getStringArrayListExtra("visions");
         Log.v(TAG, "intent: " + visions);
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, visions);
-//        mListView.setAdapter(adapter);
         mListView.setAdapter(new MyListAdapter(this, R.layout.list_item, visions));
         visions.add("First Item");
         visions.add("secoond Item");
 //        Typeface champageFont = Typeface.createFromAsset(getAssets(), "fonts/cac_champagne.ttf");
 //        mListView.setTypeface(champageFont);
-
-
-
-//        visions = intent.getStringArrayListExtra("words");
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, words);
-//        mGridView.setAdapter(adapter); (For List implementation, delete the next three lines.)
-
-
-//        String pledge = intent.getStringExtra("vision");
-//        mPledgeView.setText(getString(R.string.agreeTo) + pledge + ".");
     }
 
 
@@ -109,5 +95,14 @@ public class ManifestActivity extends AppCompatActivity {
         TextView itemTextView;
         Button doneButton;
         Button shareButton;
+    }
+
+    @Override
+    public void onClick(View view){
+        if(view == mDoneButton) {
+            Toast.makeText(ManifestActivity.this, "This button is a work in progress.", Toast.LENGTH_LONG).show();
+        } else if (view == mShareButton){
+            startActivity(new Intent(ManifestActivity.this, CreateActivity.class));
+        }
     }
 }

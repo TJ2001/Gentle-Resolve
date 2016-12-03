@@ -5,11 +5,16 @@
     android:layout_height="fill_parent">
 
     <ListView
-        android:layout_height="wrap_content"
+        android:layout_height="465dp"
         android:id="@+id/visionListView"
         android:layout_width="fill_parent"
-        android:layout_weight="1"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Support (via Meetup)"
+        android:id="@+id/supportButton" />
 
 </LinearLayout>
