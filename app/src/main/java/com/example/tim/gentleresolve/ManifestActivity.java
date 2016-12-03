@@ -74,12 +74,13 @@ public class ManifestActivity extends AppCompatActivity implements View.OnClickL
                     Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT).show();
                 }
             });
-            mainViewholder.shareButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getContext(), "Share button was clicked " + position, Toast.LENGTH_SHORT).show();
-                }
-            });
+
+//            mainViewholder.shareButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(getContext(), "Share button was clicked " + position, Toast.LENGTH_SHORT).show();
+//                }
+//            });
 
             mainViewholder.itemTextView.setText(getItem(position));
 
