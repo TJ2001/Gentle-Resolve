@@ -10,10 +10,11 @@ _The purpose of this application will be to exemplify things taught in the Epico
 
 ## Setup/Installation Requirements
 
-* Go to console on a Mac (use gitbash on Windows) "git clone -b week1 https://github.com/TJ2001/MyApp-Android.git"
+* Clone github repository from https://github.com/TJ2001/MyApp-Android to desktop or local android project portfolio.
+* Go to console on a Mac (use gitbash on Windows), go into project folder and type following command "git checkout week1".
+* Use command "git status" making sure you are in week1 branch.
 * Have Android SDK 2.1 installed properly on user's system.
 * Setup Android emulator with 23 API and run.
-* It is also advised to go into setting and disable android keyboard input from the language setting.
 * Everything should just work fine, if directions are followed.
 
 ## Specifications
