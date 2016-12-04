@@ -14,13 +14,6 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-//Things to do:
-//    1. Put each input into arraylist and send it to ManifestActivity.java
-//    2. Create a drop-down button.
-//    3. Put a listener on the button.
-//    4. Send option data from button to ManifestActivity.java.
-
-
 public class CreateActivity extends AppCompatActivity {
     @Bind(R.id.manifestButton) Button mManifestButton;
     @Bind(R.id.vision) EditText mVision;
