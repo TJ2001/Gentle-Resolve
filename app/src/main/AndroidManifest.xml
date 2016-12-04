@@ -20,16 +20,14 @@
         <activity android:name=".CreateActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tim.gentleresolve.StartActivity">
-            </meta-data>
+                android:value="com.example.tim.gentleresolve.StartActivity"></meta-data>
         </activity>
         <activity android:name=".ManifestActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tim.gentleresolve.ManifestActivity">
-            </meta-data>
+                android:value="com.example.tim.gentleresolve.ManifestActivity"></meta-data>
         </activity>
-
+        <activity android:name=".AchievementsActivity"></activity>
     </application>
 
 </manifest>

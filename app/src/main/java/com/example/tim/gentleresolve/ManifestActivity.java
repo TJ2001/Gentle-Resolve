@@ -84,12 +84,18 @@ public class ManifestActivity extends AppCompatActivity {
                 convertView.setTag(viewHolder);
             }
             mainViewholder = (ViewHolder) convertView.getTag();
+
             mainViewholder.doneButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT).show();
+                    String vision = visions.get(position).toString();
+                    Intent intent = new Intent(ManifestActivity.this, AchievementsActivity.class);
+                    intent.putExtra("vision", vision);
+                    Log.v(TAG, "intent from Done Button: " + intent);
+                    startActivity(intent);
                 }
             });
+
             mainViewholder.shareButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -26,7 +26,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v){
         if(v == mAchieveButton){
-            Toast.makeText(StartActivity.this, "This button is a work in progress.", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(StartActivity.this, AchievementsActivity.class));
         } else if (v == mStartButton){
             startActivity(new Intent(StartActivity.this, CreateActivity.class));
         }
