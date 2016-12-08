@@ -1,4 +1,4 @@
-package com.example.tim.gentleresolve;
+package com.example.tim.gentleresolve.main_ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,17 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.tim.gentleresolve.R;
+
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-
-//Things to do:
-//    1. Put each input into arraylist and send it to ManifestActivity.java
-//    2. Create a drop-down button.
-//    3. Put a listener on the button.
-//    4. Send option data from button to ManifestActivity.java.
-
 
 public class CreateActivity extends AppCompatActivity {
     @Bind(R.id.manifestButton) Button mManifestButton;

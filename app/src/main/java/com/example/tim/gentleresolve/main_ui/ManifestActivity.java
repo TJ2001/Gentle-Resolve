@@ -1,8 +1,7 @@
-package com.example.tim.gentleresolve;
+package com.example.tim.gentleresolve.main_ui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,15 +15,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tim.gentleresolve.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ManifestActivity extends AppCompatActivity implements View.OnClickListener {
+public class ManifestActivity extends AppCompatActivity {
     @Bind(R.id.visionListView) ListView mListView;
-    @Bind(R.id.doneButton) Button mDoneButton;
 
     private List<String> visions = new ArrayList<>();
 
@@ -43,8 +43,6 @@ public class ManifestActivity extends AppCompatActivity implements View.OnClickL
         mListView.setAdapter(new MyListAdapter(this, R.layout.list_item, visions));
         visions.add("First Item");
         visions.add("secoond Item");
-//        Typeface champageFont = Typeface.createFromAsset(getAssets(), "fonts/cac_champagne.ttf");
-//        mListView.setTypeface(champageFont);
     }
 
 
@@ -64,21 +62,27 @@ public class ManifestActivity extends AppCompatActivity implements View.OnClickL
                 ViewHolder viewHolder = new ViewHolder();
                 viewHolder.itemTextView = (TextView) convertView.findViewById(R.id.itemTextView);
                 viewHolder.doneButton = (Button) convertView.findViewById(R.id.doneButton);
+                viewHolder.supportButton = (Button) convertView.findViewById(R.id.supportButton);
 
                 convertView.setTag(viewHolder);
             }
             mainViewholder = (ViewHolder) convertView.getTag();
+
             mainViewholder.doneButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT).show();
+                    String vision = visions.get(position).toString();
+                    Intent intent = new Intent(ManifestActivity.this, AchievementsActivity.class);
+                    intent.putExtra("vision", vision);
+                    Log.v(TAG, "intent from Done Button: " + intent);
+                    startActivity(intent);
                 }
             });
 
-//            mainViewholder.shareButton.setOnClickListener(new View.OnClickListener() {
+//            mainViewholder.supportButton.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    Toast.makeText(getContext(), "Share button was clicked " + position, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "findSupport button was clicked " + position, Toast.LENGTH_SHORT).show();
 //                }
 //            });
 
@@ -93,12 +97,6 @@ public class ManifestActivity extends AppCompatActivity implements View.OnClickL
         ImageView thumbnail;
         TextView itemTextView;
         Button doneButton;
-    }
-
-    @Override
-    public void onClick(View view){
-        if(view == mDoneButton) {
-            Toast.makeText(ManifestActivity.this, "This button is a work in progress.", Toast.LENGTH_LONG).show();
-        }
+        Button supportButton;
     }
 }

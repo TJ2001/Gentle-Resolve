@@ -1,24 +1,18 @@
-package com.example.tim.gentleresolve;
+package com.example.tim.gentleresolve.api_ui;
 
 import android.content.Intent;
-import android.graphics.Movie;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
+import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.Meetup;
 import com.example.tim.gentleresolve.services.MeetupService;
 
-import org.parceler.Parcels;
-
 import java.io.IOException;
-import java.security.acl.Group;
 import java.util.ArrayList;
 
 import okhttp3.Call;

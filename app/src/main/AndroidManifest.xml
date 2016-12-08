@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".StartActivity"
+            android:name=".main_ui.StartActivity"
             android:theme="@style/StartTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,18 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateActivity">
+        <activity android:name=".main_ui.CreateActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tim.gentleresolve.StartActivity" />
+                android:value=".main_ui.StartActivity" />
         </activity>
-        <activity android:name=".ManifestActivity">
+        <activity android:name=".main_ui.ManifestActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tim.gentleresolve.ManifestActivity" />
+                android:value=".main_ui.ManifestActivity" />
         </activity>
-        <activity android:name=".FindSupportActivity" />
-        <activity android:name=".ResultsListActivity"></activity>
+        <activity android:name=".api_ui.FindSupportActivity" />
+        <activity android:name=".api_ui.ResultsListActivity" />
+        <activity android:name=".main_ui.AchievementsActivity"></activity>
     </application>
 
 </manifest>
