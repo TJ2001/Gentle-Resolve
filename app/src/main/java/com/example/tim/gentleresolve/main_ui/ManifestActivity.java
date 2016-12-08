@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
+import com.example.tim.gentleresolve.api_ui.ResultsListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ManifestActivity extends AppCompatActivity  implements View.OnClickListener{
+public class ManifestActivity extends AppCompatActivity{
     @Bind(R.id.visionListView) ListView mListView;
     @Bind(R.id.supportButton) Button mSupportButton;
 
@@ -32,15 +33,9 @@ public class ManifestActivity extends AppCompatActivity  implements View.OnClick
 
     public static final String TAG = CreateActivity.class.getSimpleName();
 //TODO fix issue with support button
-    @Override
-    public void onClick(View v){
-        if(v == mSupportButton){
-            startActivity(new Intent(ManifestActivity.this, FindSupportActivity.class));
-        }
-    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manifest);
         ButterKnife.bind(this);
@@ -52,7 +47,15 @@ public class ManifestActivity extends AppCompatActivity  implements View.OnClick
         mListView.setAdapter(new MyListAdapter(this, R.layout.list_item, visions));
         visions.add("First Item");
         visions.add("secoond Item");
+
+        mSupportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ManifestActivity.this, FindSupportActivity.class));
+            }
+        });
     }
+
 
     private class MyListAdapter extends ArrayAdapter<String>{
         private int layout;
