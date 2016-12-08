@@ -3,6 +3,7 @@ package com.example.tim.gentleresolve.api_ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,16 +24,21 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_support);
         ButterKnife.bind(this);
+
+        mFindMeetupsButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
-        if (v == mFindMeetupsButton){
-            Intent myIntent = new Intent(FindSupportActivity.this, ResultsListActivity.class);
+        Intent myIntent = new Intent(FindSupportActivity.this, ResultsListActivity.class);
+            String passion = mPassion.getText().toString();
+            String zip = mZip.getText().toString();
+            String radius = mRadius.getText().toString();
             myIntent.putExtra("passion", mPassion.getText().toString());
             myIntent.putExtra("zip", mZip.getText().toString());
             myIntent.putExtra("radius", mRadius.getText().toString());
+            Log.i("FindSupportActivity", "Clicked!");
             startActivity(myIntent);
-        }
-    };
+    }
 }
+
