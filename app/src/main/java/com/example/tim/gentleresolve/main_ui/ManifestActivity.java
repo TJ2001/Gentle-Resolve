@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tim.gentleresolve.R;
+import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +24,20 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ManifestActivity extends AppCompatActivity {
+public class ManifestActivity extends AppCompatActivity  implements View.OnClickListener{
     @Bind(R.id.visionListView) ListView mListView;
+    @Bind(R.id.supportButton) Button mSupportButton;
 
     private List<String> visions = new ArrayList<>();
 
     public static final String TAG = CreateActivity.class.getSimpleName();
+//TODO fix issue with support button
+    @Override
+    public void onClick(View v){
+        if(v == mSupportButton){
+            startActivity(new Intent(ManifestActivity.this, FindSupportActivity.class));
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +53,6 @@ public class ManifestActivity extends AppCompatActivity {
         visions.add("First Item");
         visions.add("secoond Item");
     }
-
 
     private class MyListAdapter extends ArrayAdapter<String>{
         private int layout;
@@ -79,12 +87,6 @@ public class ManifestActivity extends AppCompatActivity {
                 }
             });
 
-//            mainViewholder.supportButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(getContext(), "findSupport button was clicked " + position, Toast.LENGTH_SHORT).show();
-//                }
-//            });
 
             mainViewholder.itemTextView.setText(getItem(position));
 
