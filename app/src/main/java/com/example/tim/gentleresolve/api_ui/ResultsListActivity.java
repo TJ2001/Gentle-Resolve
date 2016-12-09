@@ -80,14 +80,14 @@ public class ResultsListActivity extends AppCompatActivity {
                             }
                         });
 
-                        for (Meetup meetup : mMeetups) {
-                            Log.d(TAG, "groupName: " + meetup.getName());
-                            Log.d(TAG, "description: " + meetup.getDescription());
-                            Log.d(TAG, "photoLink: " + meetup.getPhotoLink());
-                            Log.d(TAG, "organizer: " + meetup.getOrganizer());
-                            Log.d(TAG, "city: " + meetup.getCity());
-                            Log.d(TAG, "link: " + meetup.getLink());
-                        }
+//                        for (Meetup meetup : mMeetups) {
+//                            Log.d(TAG, "groupName: " + meetup.getName());
+//                            Log.d(TAG, "description: " + meetup.getDescription());
+//                            Log.d(TAG, "photoLink: " + meetup.getPhotoLink());
+//                            Log.d(TAG, "organizer: " + meetup.getOrganizer());
+//                            Log.d(TAG, "city: " + meetup.getCity());
+//                            Log.d(TAG, "link: " + meetup.getLink());
+//                        }
                     }
                 });
 

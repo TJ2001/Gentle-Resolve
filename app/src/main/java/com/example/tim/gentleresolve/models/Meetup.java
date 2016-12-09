@@ -1,8 +1,8 @@
 package com.example.tim.gentleresolve.models;
 
-/**
- * Created by Guest on 12/2/16.
- */
+import org.parceler.Parcel;
+
+@Parcel
 public class Meetup {
     private String mName;
     private String mDescription;
@@ -11,6 +11,7 @@ public class Meetup {
     private String mCity;
     private String mLink;
 
+    public Meetup(){};
     public Meetup(String mName, String mDescription, String mPhotoLink, String mOrganizer, String mCity, String mLink) {
         this.mName = mName;
         this.mDescription = mDescription;
