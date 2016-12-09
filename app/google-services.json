@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "713530683307",
+    "firebase_url": "https://gentle-resolve.firebaseio.com",
+    "project_id": "gentle-resolve",
+    "storage_bucket": "gentle-resolve.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713530683307:android:8ecfbf9fb667d319",
+        "android_client_info": {
+          "package_name": "com.epicodus.gentleResolve"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713530683307-maugq7so1b91e992vqouuumdtml01imr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.gentleResolve",
+            "certificate_hash": "C10F43151B9B7C1AB69D58AC81ECF91A1869E232"
+          }
+        },
+        {
+          "client_id": "713530683307-sfdj33p7s4dgf4535fmmt8gp8mvhil7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX4nB4rs_hmkMJW_HLT3tsNDQC2q_uaV0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713530683307-sfdj33p7s4dgf4535fmmt8gp8mvhil7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,13 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".main_ui.StartActivity"
-            android:theme="@style/StartTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".main_ui.StartActivity">
+            <!--android:theme="@style/StartTheme">-->
         </activity>
         <activity android:name=".main_ui.CreateActivity">
             <meta-data
@@ -32,7 +27,14 @@
         <activity android:name=".api_ui.FindSupportActivity" />
         <activity android:name=".api_ui.ResultsListActivity" />
         <activity android:name=".main_ui.AchievementsActivity" />
-        <activity android:name=".api_ui.ResultsDetailActivity"></activity>
+        <activity android:name=".api_ui.ResultsDetailActivity" />
+        <activity android:name=".main_ui.LoginActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>/>
+        </activity>
+        <activity android:name=".main_ui.CreateAccountActivity"></activity>
     </application>
 
 </manifest>
