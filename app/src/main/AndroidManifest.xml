@@ -31,7 +31,8 @@
         </activity>
         <activity android:name=".api_ui.FindSupportActivity" />
         <activity android:name=".api_ui.ResultsListActivity" />
-        <activity android:name=".main_ui.AchievementsActivity"></activity>
+        <activity android:name=".main_ui.AchievementsActivity" />
+        <activity android:name=".api_ui.ResultsDetailActivity"></activity>
     </application>
 
 </manifest>

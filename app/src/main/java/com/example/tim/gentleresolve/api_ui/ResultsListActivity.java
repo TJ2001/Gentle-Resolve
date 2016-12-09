@@ -70,24 +70,24 @@ public class ResultsListActivity extends AppCompatActivity {
                                 android.R.layout.simple_list_item_1, groupNames);
                         mListView.setAdapter(adapter);
 
-//                        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                            @Override
-//                            public void onItemClick(AdapterView<?> adapterView, View view, int positon, long id) {
-//                                Intent intent = new Intent(view.getContext(), ResultsDetailActivity.class);
-//                                intent.putExtra("position", positon);
-//                                intent.putExtra("meetups", Parcels.wrap(mMeetups));
-//                                view.getContext().startActivity(intent);
-//                            }
-//                        });
+                        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int positon, long id) {
+                                Intent intent = new Intent(view.getContext(), ResultsDetailActivity.class);
+                                intent.putExtra("position", positon);
+                                intent.putExtra("meetups", Parcels.wrap(mMeetups));
+                                view.getContext().startActivity(intent);
+                            }
+                        });
 
-//                        for (Meetup meetup : mMeetups) {
-//                            Log.d(TAG, "groupName: " + meetup.getName());
-//                            Log.d(TAG, "description: " + meetup.getDescription());
-//                            Log.d(TAG, "photoLink: " + meetup.getPhotoLink());
-//                            Log.d(TAG, "organizer: " + meetup.getOrganizer());
-//                            Log.d(TAG, "city: " + meetup.getCity());
-//                            Log.d(TAG, "link: " + meetup.getLink());
-//                        }
+                        for (Meetup meetup : mMeetups) {
+                            Log.d(TAG, "groupName: " + meetup.getName());
+                            Log.d(TAG, "description: " + meetup.getDescription());
+                            Log.d(TAG, "photoLink: " + meetup.getPhotoLink());
+                            Log.d(TAG, "organizer: " + meetup.getOrganizer());
+                            Log.d(TAG, "city: " + meetup.getCity());
+                            Log.d(TAG, "link: " + meetup.getLink());
+                        }
                     }
                 });
 
