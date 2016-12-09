@@ -38,11 +38,11 @@ public class ResultsListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String passion = intent.getStringExtra("passion");
+        String interest = intent.getStringExtra("interest");
         String zip = intent.getStringExtra("zip");
         String radius = intent.getStringExtra("radius");
 
-        getMeetup(passion, zip, radius);
+        getMeetup(zip, interest, radius);
     }
 
     private void getMeetup(String passion, String zip, String radius) {
@@ -80,14 +80,14 @@ public class ResultsListActivity extends AppCompatActivity {
 //                            }
 //                        });
 
-                        for (Meetup meetup : mMeetups) {
-                            Log.d(TAG, "groupName: " + meetup.getName());
-                            Log.d(TAG, "description: " + meetup.getDescription());
-                            Log.d(TAG, "photoLink: " + meetup.getPhotoLink());
-                            Log.d(TAG, "organizer: " + meetup.getOrganizer());
-                            Log.d(TAG, "city: " + meetup.getCity());
-                            Log.d(TAG, "link: " + meetup.getLink());
-                        }
+//                        for (Meetup meetup : mMeetups) {
+//                            Log.d(TAG, "groupName: " + meetup.getName());
+//                            Log.d(TAG, "description: " + meetup.getDescription());
+//                            Log.d(TAG, "photoLink: " + meetup.getPhotoLink());
+//                            Log.d(TAG, "organizer: " + meetup.getOrganizer());
+//                            Log.d(TAG, "city: " + meetup.getCity());
+//                            Log.d(TAG, "link: " + meetup.getLink());
+//                        }
                     }
                 });
 

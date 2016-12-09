@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class FindSupportActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.passionInput) EditText mPassion;
+    @Bind(R.id.passionInput) EditText mInterest;
     @Bind(R.id.zipInput) EditText mZip;
     @Bind(R.id.radiusInput) EditText mRadius;
     @Bind(R.id.findMeetupsButton) Button mFindMeetupsButton;
@@ -31,7 +31,7 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v){
         Intent myIntent = new Intent(FindSupportActivity.this, ResultsListActivity.class);
-            myIntent.putExtra("passion", mPassion.getText().toString());
+            myIntent.putExtra("interest", mInterest.getText().toString());
             myIntent.putExtra("zip", mZip.getText().toString());
             myIntent.putExtra("radius", mRadius.getText().toString());
             Log.i("FindSupportActivity", "Clicked!");
