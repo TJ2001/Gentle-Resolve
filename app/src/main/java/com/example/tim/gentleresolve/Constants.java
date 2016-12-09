@@ -11,4 +11,6 @@ public class Constants {
     public static final String QUERY_PARAMS = "zip";
     public static final String RADIUS = "radius";
     public static final String RESULT_LIMIT = "page";
+
+
 }

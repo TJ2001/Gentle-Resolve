@@ -31,9 +31,6 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v){
         Intent myIntent = new Intent(FindSupportActivity.this, ResultsListActivity.class);
-            String passion = mPassion.getText().toString();
-            String zip = mZip.getText().toString();
-            String radius = mRadius.getText().toString();
             myIntent.putExtra("passion", mPassion.getText().toString());
             myIntent.putExtra("zip", mZip.getText().toString());
             myIntent.putExtra("radius", mRadius.getText().toString());
@@ -41,4 +38,3 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
             startActivity(myIntent);
     }
 }
-

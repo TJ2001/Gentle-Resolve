@@ -17,9 +17,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
-/**
- * Created by Guest on 12/2/16.
- */
 public class MeetupService {
 
     public static final String TAG = MeetupService.class.getSimpleName();
@@ -56,14 +53,18 @@ public class MeetupService {
 
             for (int i = 0; i < results.length(); i++) {
                 JSONObject resultsJSON = results.getJSONObject(i);
-
-                String groupName = resultsJSON.getString("name");
+                String city = resultsJSON.getString("city");
+                Log.v("meetup", "Meetup city: " + city);
+                String link = resultsJSON.getString("link");
                 String description = resultsJSON.getString("description");
-                String photoLink = resultsJSON.getString("photo_link");
+                Log.v("meetup", "Meetup description: " + description);
+                String photoLink = resultsJSON.getJSONObject("group_photo").getString("photo_link");
+                Log.v("meetup", "Meetup photoLink: " + photoLink);
                 String organizer = resultsJSON.getJSONObject("organizer")
                         .getString("name");
-                String city = resultsJSON.getString("city");
-                String link = resultsJSON.getString("link");
+                Log.v("meetup", "meetup organizer: " + organizer);
+                String groupName = resultsJSON.getString("name");
+                Log.v("meetup", "Meetup groupName: " + groupName);
 
                 Meetup newMeetup = new Meetup(groupName, description, photoLink, organizer, city, link);
                 meetups.add(newMeetup);
@@ -72,7 +73,6 @@ public class MeetupService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("meetup", "Meetup ArrayList: " + meetups);
         return meetups;
     }
 }

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -11,6 +13,8 @@ import android.widget.ListView;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.Meetup;
 import com.example.tim.gentleresolve.services.MeetupService;
+
+import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.util.ArrayList;
