@@ -1,6 +1,8 @@
 package com.example.tim.gentleresolve.api_ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tim.gentleresolve.R;
+import com.example.tim.gentleresolve.main_ui.CreateAccountActivity;
+import com.example.tim.gentleresolve.main_ui.LoginActivity;
+import com.example.tim.gentleresolve.main_ui.ManifestActivity;
 import com.example.tim.gentleresolve.models.Meetup;
 import com.squareup.picasso.Picasso;
 
@@ -18,7 +23,7 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MeetupDetailFragment extends Fragment {
+public class MeetupDetailFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.meetupImageView) ImageView mPhotolink;
     @Bind(R.id.meetupNameTextView) TextView mName;
     @Bind(R.id.interestTextView) TextView mCity;
@@ -53,9 +58,19 @@ public class MeetupDetailFragment extends Fragment {
         mName.setText(mMeetup.getName());
         mCity.setText(mMeetup.getCity());
         mOrganizer.setText("Organizer:   " + mMeetup.getOrganizer());
-        mLink.setText(mMeetup.getLink());
+
+        mLink.setOnClickListener(this);
 
         return view;
     }
+//    TODO add websiteTextView
 
+    @Override
+    public void onClick(View view) {
+        if (view == mLink) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mMeetup.getLink()));
+            startActivity(webIntent);
+        }
+    }
 }

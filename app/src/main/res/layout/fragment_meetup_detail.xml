@@ -15,7 +15,7 @@
             android:layout_height="180dp"
             android:id="@+id/meetupImageView"
             android:src="@drawable/meetup"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerInside" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -108,7 +108,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save Restaurant"
+                android:text="Save Meetup"
                 android:id="@+id/saveMeetupButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/yellow"
