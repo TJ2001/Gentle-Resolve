@@ -7,8 +7,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
+import com.example.tim.gentleresolve.api_ui.ResultsDetailActivity;
 import com.example.tim.gentleresolve.models.Meetup;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -32,20 +39,19 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
     public void bindMeetup(Meetup meeetup) {
         ImageView meeetupImageView = (ImageView) mView.findViewById(R.id.meetupImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.meetupNameTextView);
-        TextView categoryTextView = (TextView) mView.findViewById(R.id.descriptionTextView);
-        TextView ratingTextView = (TextView) mView.findViewById(R.id.organizerTextView);
+        TextView descriptionTextView = (TextView) mView.findViewById(R.id.descriptionTextView);
+        TextView organzierTextView = (TextView) mView.findViewById(R.id.organizerTextView);
 
-//        TODO Refactor code
 
         Picasso.with(mContext)
-                .load(meeetup.getImageUrl())
+                .load(meeetup.getPhotoLink())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
                 .into(meeetupImageView);
 
         nameTextView.setText(meeetup.getName());
-        categoryTextView.setText(meeetup.getCategories().get(0));
-        ratingTextView.setText("Rating: " + meeetup.getRating() + "/5");
+        descriptionTextView.setText(meeetup.getDescription());
+        organzierTextView.setText(meeetup.getOrganizer());
     }
 
     @Override
@@ -62,7 +68,7 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
 
                 int itemPosition = getLayoutPosition();
 
-                Intent intent = new Intent(mContext, MeetupDetailActivity.class);
+                Intent intent = new Intent(mContext, ResultsDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
                 intent.putExtra("meeetups", Parcels.wrap(meeetups));
 
