@@ -28,6 +28,7 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.zipInput) EditText mZip;
     @Bind(R.id.radiusInput) EditText mRadius;
     @Bind(R.id.findMeetupsButton) Button mFindMeetupsButton;
+    @Bind(R.id.savedMeetupsButton) Button mSavedMeetupsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +62,14 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
         ButterKnife.bind(this);
 
         mFindMeetupsButton.setOnClickListener(this);
+        mSavedMeetupsButton.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v){
-        Intent myIntent = new Intent(FindSupportActivity.this, ResultsListActivity.class);
+        if(v == mFindMeetupsButton){
+            Intent myIntent = new Intent(FindSupportActivity.this, ResultsListActivity.class);
             String passion = mInterest.getText().toString();
             myIntent.putExtra("interest", passion);
             String zip = mZip.getText().toString();
@@ -75,6 +78,11 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
             myIntent.putExtra("radius", radius);
             saveParamsToFirebase(passion, zip, radius);
             startActivity(myIntent);
+        } else if (v == mSavedMeetupsButton){
+            Intent intent = new Intent(FindSupportActivity.this, SavedMeetupActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     @Override

@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SavedMeetupListActivity extends AppCompatActivity {
+public class SavedMeetupActivity extends AppCompatActivity {
     private DatabaseReference mMeetupReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
 
@@ -27,7 +27,7 @@ public class SavedMeetupListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_meetups);
+        setContentView(R.layout.activity_saved_meetup);
         ButterKnife.bind(this);
 
         mMeetupReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEETUPS);
@@ -55,4 +55,5 @@ public class SavedMeetupListActivity extends AppCompatActivity {
         super.onDestroy();
         mFirebaseAdapter.cleanup();
     }
+
 }

@@ -37,7 +37,8 @@
             />
         </activity>
         <activity android:name=".main_ui.CreateAccountActivity" />
-        <activity android:name=".api_ui.SavedMeetupListActivity"></activity>
+        <activity android:name=".api_ui.SavedMeetupsActivity" />
+        <activity android:name=".api_ui.SavedMeetupActivity"></activity>
     </application>
 
 </manifest>

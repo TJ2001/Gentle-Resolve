@@ -51,4 +51,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="41dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Saved Meetups"
+        android:id="@+id/savedMeetupsButton"
+        android:background="@color/yellow"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/findMeetupsButton"
+        android:layout_alignEnd="@+id/findMeetupsButton"
+        android:layout_alignLeft="@+id/findMeetupsButton"
+        android:layout_alignStart="@+id/findMeetupsButton" />
+
 </RelativeLayout>

@@ -38,7 +38,7 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
 
     public void bindMeetup(Meetup meetup) {
         ImageView meetupImageView = (ImageView) mView.findViewById(R.id.meetupImageView);
-        TextView nameTextView = (TextView) mView.findViewById(R.id.meetupNameTextView);
+        TextView nameTextView = (TextView) mView.findViewById(R.id.nameTextView);
         TextView cityTextView = (TextView) mView.findViewById(R.id.cityTextView);
         TextView organizerTextView = (TextView) mView.findViewById(R.id.organizerTextView);
 
