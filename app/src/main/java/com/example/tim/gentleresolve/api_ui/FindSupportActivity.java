@@ -10,9 +10,13 @@ import android.widget.EditText;
 
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
+import com.example.tim.gentleresolve.models.SavedSearch;
 import com.firebase.client.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,6 +32,7 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     private DatabaseReference mSearchedRadius;
     private DatabaseReference mSetId;
     private DatabaseReference mSearchedMeetup;
+    private Firebase mRootRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,19 +41,6 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
                 .getInstance()
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_MEETUPS);
-
-//
-//        mSearchedZip = FirebaseDatabase
-//                .getInstance()
-//                .getReference()
-//                .child(Constants.FIREBASE_CHILD_MEETUPS)
-//                .child(Constants.FIREBASE_CHILD_ZIP);
-//
-//        mSearchedRadius = FirebaseDatabase
-//                .getInstance()
-//                .getReference()
-//                .child(Constants.FIREBASE_CHILD_MEETUPS)
-//                .child(Constants.FIREBASE_CHILD_RADIUS);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_support);
@@ -76,26 +68,9 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
 //        Firebase mRefChild = mRef.child("Group");
 //        mRefChild.setValue(passion);
         DatabaseReference mSetId = mSearchedMeetup.push();
-        Firebase mRefPassion = mSetId.child("passion");
-        mRefPassion.setValue(passion);
-        Firebase mRefZip = mSetId.child("zip");
-        mRefZip.setValue(zip);
-        Firebase mRefRadius = mSetId.child("radius");
-        mRefRadius.setValue(radius);
+        String generatedID = mSetId.getKey();
 
-        mSearchedPassion.push().setValue(passion);
-        mSearchedZip.push().setValue(zip);
-        mSearchedRadius.push().setValue(radius);
-
-
-        mSearchedPassion = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(mSetId)
-                .child(Constants.FIREBASE_CHILD_PASSION);
+        mSetId.setValue(new SavedSearch(passion, zip, radius, generatedID));
     }
-
-
-
 
 }
