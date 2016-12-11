@@ -12,14 +12,14 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="220dp"
             android:id="@+id/meetupImageView"
             android:src="@drawable/meetup"
-            android:scaleType="centerInside" />
+            android:scaleType="centerCrop" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="88dp"
             android:background="@android:color/white"
             android:paddingTop="20dp"
             android:paddingLeft="10dp"
@@ -33,6 +33,7 @@
                 android:id="@+id/meetupNameTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:maxWidth="260dp"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
@@ -42,11 +43,11 @@
                 android:layout_height="wrap_content"
                 android:text="Organizer:   Beth Stevens"
                 android:id="@+id/organizerTextView"
-                android:layout_alignTop="@+id/meetupNameTextView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:textColor="@color/blue"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:layout_width="wrap_content"
