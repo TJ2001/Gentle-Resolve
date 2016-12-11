@@ -23,12 +23,11 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.radiusInput) EditText mRadius;
     @Bind(R.id.findMeetupsButton) Button mFindMeetupsButton;
 
-    private DatabaseReference mSearchedMeetupReference;
+    private DatabaseReference mSearchedPassion;
     private DatabaseReference mSearchedZip;
     private DatabaseReference mSearchedRadius;
+    private DatabaseReference mSetId;
     private DatabaseReference mSearchedMeetup;
-
-    private Firebase mRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +37,6 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_MEETUPS);
 
-        mSearchedMeetupReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_MEETUPS)
-                .child(Constants.FIREBASE_CHILD_PASSION);
 //
 //        mSearchedZip = FirebaseDatabase
 //                .getInstance()
@@ -62,7 +56,6 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
 
         mFindMeetupsButton.setOnClickListener(this);
 
-        mRef = new Firebase ("https://gentle-resolve.firebaseio.com/");
     }
 
     @Override
@@ -79,10 +72,30 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void saveParamsToFirebase(String passion, String zip, String radius) {
-        mSearchedMeetupReference.push().setValue(passion);
-//        mSearchedZip.push().setValue(zip);
-//        mSearchedRadius.push().setValue(radius);
+//        mUnique = mRef.push();
+//        Firebase mRefChild = mRef.child("Group");
+//        mRefChild.setValue(passion);
+        DatabaseReference mSetId = mSearchedMeetup.push();
+        Firebase mRefPassion = mSetId.child("passion");
+        mRefPassion.setValue(passion);
+        Firebase mRefZip = mSetId.child("zip");
+        mRefZip.setValue(zip);
+        Firebase mRefRadius = mSetId.child("radius");
+        mRefRadius.setValue(radius);
+
+        mSearchedPassion.push().setValue(passion);
+        mSearchedZip.push().setValue(zip);
+        mSearchedRadius.push().setValue(radius);
+
+
+        mSearchedPassion = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(mSetId)
+                .child(Constants.FIREBASE_CHILD_PASSION);
     }
+
+
 
 
 }
