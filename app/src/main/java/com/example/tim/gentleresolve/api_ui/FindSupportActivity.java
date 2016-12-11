@@ -1,6 +1,8 @@
 package com.example.tim.gentleresolve.api_ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +25,8 @@ import butterknife.ButterKnife;
 public class FindSupportActivity extends AppCompatActivity implements View.OnClickListener {
     private DatabaseReference mSearchedMeetupReference;
     private ValueEventListener mSearchedMeetupReferenceListener;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Bind(R.id.passionInput) EditText mInterest;
     @Bind(R.id.zipInput) EditText mZip;
@@ -39,8 +43,6 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
                 .child(Constants.FIREBASE_CHILD_SEARCHED_MEETUPS);
 
         mSearchedMeetupReferenceListener = mSearchedMeetupReference.addValueEventListener(new ValueEventListener() {
-
-//            possible bug in the future with passion, maybe switch name of string later
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -61,6 +63,10 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_find_support);
         ButterKnife.bind(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+
         mFindMeetupsButton.setOnClickListener(this);
         mSavedMeetupsButton.setOnClickListener(this);
 
@@ -70,19 +76,23 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v){
         if(v == mFindMeetupsButton){
             Intent myIntent = new Intent(FindSupportActivity.this, ResultsListActivity.class);
+
             String passion = mInterest.getText().toString();
-            myIntent.putExtra("interest", passion);
             String zip = mZip.getText().toString();
-            myIntent.putExtra("zip", zip);
             String radius = mRadius.getText().toString();
+            myIntent.putExtra("interest", passion);
+            myIntent.putExtra("zip", zip);
             myIntent.putExtra("radius", radius);
+            addToSharedPreferencesZip(zip);;
             saveParamsToFirebase(passion, zip, radius);
+            if(!(zip).equals("")) {
+                addToSharedPreferencesZip(zip);
+            }
             startActivity(myIntent);
         } else if (v == mSavedMeetupsButton){
             Intent intent = new Intent(FindSupportActivity.this, SavedMeetupActivity.class);
             startActivity(intent);
         }
-
     }
 
     @Override
@@ -95,6 +105,12 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
         DatabaseReference mSetId = mSearchedMeetupReference.push();
         String generatedID = mSetId.getKey();
         mSetId.setValue(new SavedSearch(passion, zip, radius, generatedID));
+    }
+
+
+    private void addToSharedPreferencesZip(String zip) {
+        mEditor.putString(Constants.PREFERENCES_ZIP_KEY, zip).apply();
+
     }
 
 }

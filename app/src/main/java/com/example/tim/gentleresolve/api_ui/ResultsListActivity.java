@@ -1,14 +1,18 @@
 package com.example.tim.gentleresolve.api_ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
+import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.Meetup;
 import com.example.tim.gentleresolve.services.MeetupServices;
@@ -25,10 +29,13 @@ import butterknife.ButterKnife;
 import okhttp3.Response;
 
 public class ResultsListActivity extends AppCompatActivity {
+    private SharedPreferences mSharedPreferences;
+    private String mRecentPassion, mRecentZip, mRecentRadius;
+    public static final String TAG = ResultsListActivity.class.getSimpleName();
+
     @Bind(R.id.listView)
     ListView mListView;
     ArrayList<Meetup> mMeetups = new ArrayList<>();
-    public static final String TAG = ResultsListActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,13 @@ public class ResultsListActivity extends AppCompatActivity {
         String radius = intent.getStringExtra("radius");
 
         getMeetup(zip, interest, radius);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentZip = mSharedPreferences.getString(Constants.PREFERENCES_ZIP_KEY, null);
+        Log.d("Shared Pref Zip", mRecentZip);
+        if (mRecentZip != null){
+            getMeetup("", mRecentZip, "");
+        }
     }
 
     private void getMeetup(String passion, String zip, String radius) {

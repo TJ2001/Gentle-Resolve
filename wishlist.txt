@@ -1,4 +1,4 @@
 WISHLIST:
-Try to find a better picture url for output.
+redo xml for list items for savedMeetups;
 
 Switch color and font by click: android-change-font-color-on-click
