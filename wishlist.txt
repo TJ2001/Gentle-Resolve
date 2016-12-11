@@ -1,0 +1,4 @@
+WISHLIST:
+Try to find a better picture url for output.
+
+Switch color and font by click: android-change-font-color-on-click
