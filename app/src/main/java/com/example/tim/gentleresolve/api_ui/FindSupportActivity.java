@@ -27,12 +27,7 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.radiusInput) EditText mRadius;
     @Bind(R.id.findMeetupsButton) Button mFindMeetupsButton;
 
-    private DatabaseReference mSearchedPassion;
-    private DatabaseReference mSearchedZip;
-    private DatabaseReference mSearchedRadius;
-    private DatabaseReference mSetId;
     private DatabaseReference mSearchedMeetup;
-    private Firebase mRootRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +59,8 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void saveParamsToFirebase(String passion, String zip, String radius) {
-//        mUnique = mRef.push();
-//        Firebase mRefChild = mRef.child("Group");
-//        mRefChild.setValue(passion);
         DatabaseReference mSetId = mSearchedMeetup.push();
         String generatedID = mSetId.getKey();
-
         mSetId.setValue(new SavedSearch(passion, zip, radius, generatedID));
     }
 
