@@ -3,7 +3,6 @@ package com.example.tim.gentleresolve.api_ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,7 +11,7 @@ import android.widget.ListView;
 
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.Meetup;
-import com.example.tim.gentleresolve.services.MeetupService;
+import com.example.tim.gentleresolve.services.MeetupServices;
 
 import org.parceler.Parcels;
 
@@ -46,7 +45,7 @@ public class ResultsListActivity extends AppCompatActivity {
     }
 
     private void getMeetup(String passion, String zip, String radius) {
-        final MeetupService MeetupFINDER = new MeetupService();
+        final MeetupServices MeetupFINDER = new MeetupServices();
 
         MeetupFINDER.findSupport(passion, zip, radius, new Callback() {
             @Override
@@ -72,27 +71,15 @@ public class ResultsListActivity extends AppCompatActivity {
 
                         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int positon, long id) {
+                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                                 Intent intent = new Intent(view.getContext(), ResultsDetailActivity.class);
-                                intent.putExtra("position", positon);
+                                intent.putExtra("position", position);
                                 intent.putExtra("meetups", Parcels.wrap(mMeetups));
                                 view.getContext().startActivity(intent);
                             }
                         });
-
-//                        for (Meetup meetup : mMeetups) {
-//                            Log.d(TAG, "groupName: " + meetup.getName());
-//                            Log.d(TAG, "description: " + meetup.getDescription());
-//                            Log.d(TAG, "photoLink: " + meetup.getPhotoLink());
-//                            Log.d(TAG, "organizer: " + meetup.getOrganizer());
-//                            Log.d(TAG, "city: " + meetup.getCity());
-//                            Log.d(TAG, "link: " + meetup.getLink());
-//                        }
                     }
                 });
-
-
-
             }
         });
     }

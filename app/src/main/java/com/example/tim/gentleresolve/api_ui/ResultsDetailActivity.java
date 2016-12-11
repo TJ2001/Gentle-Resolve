@@ -1,5 +1,6 @@
 package com.example.tim.gentleresolve.api_ui;
 
+import android.graphics.Movie;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,8 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ResultsDetailActivity extends AppCompatActivity {
-    @Bind(R.id.viewPager)
-    ViewPager mViewPager;
+    @Bind(R.id.viewPager) ViewPager mViewPager;
     private MeetupPagerAdapter adapterViewPager;
     ArrayList<Meetup> mMeetups = new ArrayList<>();
 
@@ -31,8 +31,7 @@ public class ResultsDetailActivity extends AppCompatActivity {
         int startingPosition = getIntent().getIntExtra("position", 0);
 
         adapterViewPager = new MeetupPagerAdapter(getSupportFragmentManager(), mMeetups);
-        mViewPager.setCurrentItem(startingPosition);
         mViewPager.setAdapter(adapterViewPager);
-
+        mViewPager.setCurrentItem(startingPosition);
     }
 }

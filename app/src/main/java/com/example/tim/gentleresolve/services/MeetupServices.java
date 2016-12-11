@@ -10,7 +10,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -18,9 +17,9 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
-public class MeetupService {
+public class MeetupServices {
 
-    public static final String TAG = MeetupService.class.getSimpleName();
+    public static final String TAG = MeetupServices.class.getSimpleName();
 
     public static void findSupport(String zip, String interest, String radius, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()
@@ -35,7 +34,7 @@ public class MeetupService {
         urlBuilder.addQueryParameter(Constants.RESULT_LIMIT, "20");
         String url = urlBuilder.build().toString();
 
-        Log.v("MeetupService", "url: " + url);
+        Log.v("MeetupServices", "url: " + url);
 
         Request request= new Request.Builder()
                 .url(url)

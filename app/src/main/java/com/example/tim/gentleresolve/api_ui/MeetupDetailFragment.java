@@ -12,10 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tim.gentleresolve.R;
-import com.example.tim.gentleresolve.main_ui.CreateAccountActivity;
-import com.example.tim.gentleresolve.main_ui.LoginActivity;
-import com.example.tim.gentleresolve.main_ui.ManifestActivity;
 import com.example.tim.gentleresolve.models.Meetup;
+import com.example.tim.gentleresolve.services.MeetupServices;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -24,6 +22,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MeetupDetailFragment extends Fragment implements View.OnClickListener{
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 150;
+
     @Bind(R.id.meetupImageView) ImageView mPhotolink;
     @Bind(R.id.meetupNameTextView) TextView mName;
     @Bind(R.id.interestTextView) TextView mCity;
@@ -33,6 +34,9 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.saveMeetupButton) TextView mSaveMeetupButton;
 
     private Meetup mMeetup;
+
+    public MeetupDetailFragment(){
+    };
 
     public static MeetupDetailFragment newInstance(Meetup meetup) {
         MeetupDetailFragment meetupDetailFragment = new MeetupDetailFragment();
@@ -53,13 +57,15 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
         View view = inflater.inflate(R.layout.fragment_meetup_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext()).load(mMeetup.getPhotoLink()).into(mPhotolink);
+        Picasso.with(view.getContext()).load(mMeetup.getPhotoLink()).resize(MAX_WIDTH, MAX_HEIGHT).centerCrop().into(mPhotolink);
 
         mName.setText(mMeetup.getName());
         mCity.setText(mMeetup.getCity());
         mOrganizer.setText("Organizer:   " + mMeetup.getOrganizer());
 
         mLink.setOnClickListener(this);
+
+        final MeetupServices meetupFinder = new MeetupServices();
 
         return view;
     }
