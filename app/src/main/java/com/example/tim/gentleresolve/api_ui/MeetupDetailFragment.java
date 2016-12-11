@@ -10,10 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.Meetup;
 import com.example.tim.gentleresolve.services.MeetupServices;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -64,12 +68,12 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
         mOrganizer.setText("Organizer:   " + mMeetup.getOrganizer());
 
         mLink.setOnClickListener(this);
+        mSaveMeetupButton.setOnClickListener(this);
 
-        final MeetupServices meetupFinder = new MeetupServices();
+//        final MeetupServices meetupFinder = new MeetupServices();
 
         return view;
     }
-//    TODO add websiteTextView
 
     @Override
     public void onClick(View view) {
@@ -77,6 +81,12 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(mMeetup.getLink()));
             startActivity(webIntent);
+        } else if (view == mSaveMeetupButton) {
+            DatabaseReference meetupRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_MEETUPS);
+            meetupRef.push().setValue(mMeetup);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }

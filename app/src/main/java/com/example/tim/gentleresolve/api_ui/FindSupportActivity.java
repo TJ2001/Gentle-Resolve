@@ -11,31 +11,50 @@ import android.widget.EditText;
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.SavedSearch;
-import com.firebase.client.Firebase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class FindSupportActivity extends AppCompatActivity implements View.OnClickListener {
+    private DatabaseReference mSearchedMeetupReference;
+    private ValueEventListener mSearchedMeetupReferenceListener;
+
     @Bind(R.id.passionInput) EditText mInterest;
     @Bind(R.id.zipInput) EditText mZip;
     @Bind(R.id.radiusInput) EditText mRadius;
     @Bind(R.id.findMeetupsButton) Button mFindMeetupsButton;
 
-    private DatabaseReference mSearchedMeetup;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        mSearchedMeetup = FirebaseDatabase
+        mSearchedMeetupReference = FirebaseDatabase
                 .getInstance()
                 .getReference()
-                .child(Constants.FIREBASE_CHILD_MEETUPS);
+                .child(Constants.FIREBASE_CHILD_SEARCHED_MEETUPS);
+
+        mSearchedMeetupReferenceListener = mSearchedMeetupReference.addValueEventListener(new ValueEventListener() {
+
+//            possible bug in the future with passion, maybe switch name of string later
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot meetupSnapshot : dataSnapshot.getChildren()) {
+                    String passion = meetupSnapshot.getValue().toString();
+                    Log.d("Interest updated", "passion: " + passion);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+        });
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_support);
@@ -58,8 +77,14 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
             startActivity(myIntent);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSearchedMeetupReference.removeEventListener(mSearchedMeetupReferenceListener);
+    }
+
     private void saveParamsToFirebase(String passion, String zip, String radius) {
-        DatabaseReference mSetId = mSearchedMeetup.push();
+        DatabaseReference mSetId = mSearchedMeetupReference.push();
         String generatedID = mSetId.getKey();
         mSetId.setValue(new SavedSearch(passion, zip, radius, generatedID));
     }

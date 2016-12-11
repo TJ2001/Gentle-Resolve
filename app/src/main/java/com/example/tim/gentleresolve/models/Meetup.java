@@ -4,44 +4,39 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Meetup {
-    private String mName;
-    private String mDescription;
-    private String mPhotoLink;
-    private String mOrganizer;
-    private String mCity;
-    private String mLink;
+    String name, description, photoLink, organizer, city, link;
 
     public Meetup(){};
-    public Meetup(String mName, String mDescription, String mPhotoLink, String mOrganizer, String mCity, String mLink) {
-        this.mName = mName;
-        this.mDescription = mDescription;
-        this.mPhotoLink = mPhotoLink;
-        this.mOrganizer = mOrganizer;
-        this.mCity = mCity;
-        this.mLink = mLink;
+    public Meetup(String name, String description, String photoLink, String mOrganizer, String city, String mLink) {
+        this.name = name;
+        this.description = description;
+        this.photoLink = photoLink;
+        this.organizer = organizer;
+        this.city = city;
+        this.link = link;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getDescription() {
-        return mDescription;
+        return description;
     }
 
     public String getPhotoLink() {
-        return mPhotoLink;
+        return photoLink;
     }
 
     public String getOrganizer() {
-        return mOrganizer;
+        return organizer;
     }
 
     public String getCity() {
-        return mCity;
+        return city;
     }
 
     public String getLink() {
-        return mLink;
+        return link;
     }
 }
