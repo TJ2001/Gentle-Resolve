@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.Meetup;
-import com.example.tim.gentleresolve.services.MeetupServices;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -31,7 +30,7 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
 
     @Bind(R.id.meetupImageView) ImageView mPhotolink;
     @Bind(R.id.meetupNameTextView) TextView mName;
-    @Bind(R.id.interestTextView) TextView mCity;
+    @Bind(R.id.cityTextView) TextView mCity;
     @Bind(R.id.organizerTextView) TextView mOrganizer;
     @Bind(R.id.websiteTextView) TextView mLink;
     @Bind(R.id.descriptionTextView) TextView mDescription;
