@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tim.gentleresolve.main_ui.CreateAccountActivity">
-    android:background="@color/colorPrimary">
+    tools:context="com.example.tim.gentleresolve.main_ui.CreateAccountActivity"
+    android:background="@color/orange">
 
     <LinearLayout
         android:orientation="vertical"
@@ -78,15 +78,15 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Sign up"
-            android:background="@color/colorAccent"
+            android:background="@color/blue"
             android:layout_marginTop="15dp"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="@color/purple" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@color/purple"
             android:textStyle="bold"
             android:textSize="15sp"
             android:text="Already have an account? Log in here!"
@@ -99,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@color/purple"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
