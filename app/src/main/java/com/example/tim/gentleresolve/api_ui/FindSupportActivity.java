@@ -83,10 +83,10 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
             myIntent.putExtra("interest", passion);
             myIntent.putExtra("zip", zip);
             myIntent.putExtra("radius", radius);
-            addToSharedPreferencesZip(zip);;
+            addToSharedPreferences(zip, passion);;
             saveParamsToFirebase(passion, zip, radius);
-            if(!(zip).equals("")) {
-                addToSharedPreferencesZip(zip);
+            if(!(zip).equals("") && !(passion).equals("")) {
+                addToSharedPreferences(passion, zip);
             }
             startActivity(myIntent);
         } else if (v == mSavedMeetupsButton){
@@ -108,9 +108,12 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
     }
 
 
-    private void addToSharedPreferencesZip(String zip) {
-        mEditor.putString(Constants.PREFERENCES_ZIP_KEY, zip).apply();
-
+    private void addToSharedPreferences(String passion, String zip) {
+        Log.d("zip", "zip: " + zip);
+        Log.d("passion", "passion: " + passion);
+        mEditor.putString(Constants.PREFERENCES_ZIP_KEY, zip);
+        mEditor.putString(Constants.PREFERENCE_PASSION_KEY, passion);
+        mEditor.apply();
     }
 
 }

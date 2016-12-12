@@ -12,6 +12,7 @@ public class Constants {
     public static final String QUERY_TEXT="text";
     public static final String RADIUS = "radius";
     public static final String RESULT_LIMIT = "page";
+    public static final String PREFERENCE_PASSION_KEY = "passion";
     public static final String PREFERENCES_ZIP_KEY = "zip";
     public static final String FIREBASE_CHILD_SEARCHED_MEETUPS = "searched meetups";
     public static final String FIREBASE_CHILD_MEETUPS = "meetups";

@@ -25,42 +25,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/zipInput"
-        android:hint="zip"
-        android:layout_below="@+id/passionInput"
-        android:layout_marginTop="81dp"
+        android:hint="zip is already provided if you inputted before, or you can use search widget"
+        android:layout_marginTop="61dp"
         android:singleLine="true"
-        android:imeOptions="actionDone"/>
+        android:imeOptions="actionDone"
+        android:layout_below="@+id/passionInput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/radiusInput"
         android:hint="distance willing to travel (in miles)"
-        android:layout_below="@+id/zipInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="79dp"
+        android:layout_marginTop="47dp"
         android:singleLine="true"
-        android:imeOptions="actionDone"/>
+        android:imeOptions="actionDone"
+        android:layout_below="@+id/zipInput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:text="Local Meetup Search"
         android:id="@+id/findMeetupsButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:text="My Saved Meetups"
         android:id="@+id/savedMeetupsButton"
         android:background="@color/yellow"
         android:visibility="visible"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/findMeetupsButton"
-        android:layout_alignEnd="@+id/findMeetupsButton"
+        android:layout_above="@+id/findMeetupsButton"
         android:layout_alignLeft="@+id/findMeetupsButton"
         android:layout_alignStart="@+id/findMeetupsButton" />
 
