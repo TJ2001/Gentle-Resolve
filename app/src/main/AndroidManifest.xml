@@ -17,12 +17,12 @@
         <activity android:name=".main_ui.CreateActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".main_ui.StartActivity" />
+                android:value="com.example.tim.gentleresolve.main_ui.StartActivity" />
         </activity>
         <activity android:name=".main_ui.ManifestActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".main_ui.ManifestActivity" />
+                android:value="com.example.tim.gentleresolve.main_ui.ManifestActivity" />
         </activity>
         <activity android:name=".api_ui.FindSupportActivity" />
         <activity android:name=".api_ui.ResultsListActivity" />
@@ -37,7 +37,6 @@
             />
         </activity>
         <activity android:name=".main_ui.CreateAccountActivity" />
-        <activity android:name=".api_ui.SavedMeetupsActivity" />
         <activity android:name=".api_ui.SavedMeetupActivity"></activity>
     </application>
 
