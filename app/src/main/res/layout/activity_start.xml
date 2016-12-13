@@ -8,7 +8,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="90dp"
         android:id="@+id/imageView2"
         android:background="@color/blue"
 
@@ -29,26 +29,18 @@
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2"
         android:layout_alignRight="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/important_promises"
-        android:id="@+id/textView"
-        android:layout_above="@+id/startButton"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2" />
+        android:layout_alignEnd="@+id/imageView2"
+        android:background="@color/yellow" />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="90dp"
         android:id="@+id/imageView"
-        android:background="@color/blue"
+        android:background="@color/orange"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="false"
+        android:adjustViewBounds="true" />
 
     <TextView
         android:layout_width="match_parent"
@@ -82,37 +74,39 @@
         android:id="@+id/linearLayout"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp">
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
             android:layout_weight=".30"
-            android:text="@string/start"
-            android:id="@+id/savedSuppportButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/yellow" />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight=".28"
-            android:text="find"
+            android:text="Find Support"
             android:id="@+id/findSupportButton"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:background="@color/yellow" />
+            android:background="@drawable/aqua_button" />
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_weight=".28"
+            android:text="Saved Support"
+            android:id="@+id/savedSuppportButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/aqua_button"
+            android:allowUndo="false" />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="70dp"
             android:layout_weight=".28"
             android:text="create vision"
             android:id="@+id/startButton"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:background="@drawable/aqua-button" />
+            android:background="@drawable/aqua_button" />
     </LinearLayout>
 
 </RelativeLayout>
