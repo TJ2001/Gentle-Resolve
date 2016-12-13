@@ -17,6 +17,8 @@ import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.Meetup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -82,10 +84,17 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
                     Uri.parse(mMeetup.getLink()));
             startActivity(webIntent);
         } else if (view == mSaveMeetupButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String userId = user.getUid();
             DatabaseReference meetupRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_MEETUPS);
-            meetupRef.push().setValue(mMeetup);
+                    .getReference(Constants.FIREBASE_CHILD_MEETUPS)
+                    .child(userId);
+
+            DatabaseReference pushRef = meetupRef.push();
+            String pushId = pushRef.getKey();
+            mMeetup.setPushId(pushId);
+            pushRef.setValue(mMeetup);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }

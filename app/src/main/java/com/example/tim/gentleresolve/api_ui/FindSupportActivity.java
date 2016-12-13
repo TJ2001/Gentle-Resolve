@@ -12,12 +12,6 @@ import android.widget.EditText;
 
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
-import com.example.tim.gentleresolve.models.SavedSearch;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

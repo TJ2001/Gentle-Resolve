@@ -11,15 +11,12 @@ import android.widget.Toast;
 
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
-import com.example.tim.gentleresolve.models.SavedSearch;
 import com.example.tim.gentleresolve.models.Vision;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -88,7 +85,7 @@ public class CreateActivity extends AppCompatActivity {
         Vision visionObject = new Vision(vision);
         mVisionReference.push().setValue(visionObject);
 //        DatabaseReference mSetId = mVisionReference.push();
-//        String generatedID = mSetId.getKey();
+//        String pushID = mSetId.getKey();
 //        mSetId.setValue(vision);
     }
 }

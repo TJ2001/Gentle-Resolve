@@ -10,6 +10,8 @@ import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.adapters.FirebaseMeetupViewHolder;
 import com.example.tim.gentleresolve.models.Meetup;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,11 +28,13 @@ public class SavedMeetupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_saved_meetup);
         ButterKnife.bind(this);
 
-        mMeetupReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEETUPS);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mMeetupReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEETUPS).child(uid);
         setUpFirebaseAdapter();
     }
 
