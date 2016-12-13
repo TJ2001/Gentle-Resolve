@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,11 +21,17 @@ import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.adapters.FirebaseMeetupViewHolder;
 import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
+import com.example.tim.gentleresolve.models.Meetup;
 import com.example.tim.gentleresolve.models.Vision;
 
+import com.firebase.client.Firebase;
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.parceler.Parcels;
 
@@ -35,13 +43,11 @@ import butterknife.ButterKnife;
 public class ManifestActivity extends AppCompatActivity{
     private DatabaseReference mVisionReference;
     private FirebaseListAdapter<Vision> mVision;
+    private FirebaseListAdapter mFirebaseAdapter;
+    private ValueEventListener mVisionReferenceListener;
 
     @Bind(R.id.visionListView) ListView mListView;
     @Bind(R.id.supportButton) Button mSupportButton;
-
-//    private List<String> visions = new ArrayList<>();
-
-    public static final String TAG = CreateActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -54,6 +60,19 @@ public class ManifestActivity extends AppCompatActivity{
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_VISIONS);
 
+
+        mVisionReferenceListener = mVisionReference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
         mVision = new FirebaseListAdapter<Vision>(this, Vision.class, R.layout.list_item, mVisionReference) {
 
             @Override
@@ -64,7 +83,28 @@ public class ManifestActivity extends AppCompatActivity{
             }
         };
 
-//        mListView.setAdapter(mVision);
+        mListView.setAdapter(mVision);
+
+
+
+
+
+
+
+
+
+
+//        ListAdapter adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, android.R.layout.two_line_list_item, mRef)
+//        {
+//            protected void populateView(View view, ChatMessage chatMessage)
+//            {
+//                ((TextView)view.findViewById(android.R.id.text1)).setText(chatMessage.getName());
+//                ((TextView)view.findViewById(android.R.id.text2)).setText(chatMessage.getMessage());
+//            }
+//        };
+//        listView.setListAdapter(adapter);
+
+
 
 //        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
