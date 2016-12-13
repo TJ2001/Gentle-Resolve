@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.tim.gentleresolve.R;
+import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
+import com.example.tim.gentleresolve.api_ui.SavedMeetupActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;
@@ -19,6 +21,8 @@ import butterknife.ButterKnife;
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.achieveButton) Button mAchieveButton;
     @Bind(R.id.startButton) Button mStartButton;
+    @Bind(R.id.savedSuppportButton) Button mSavedSuppportButton;
+    @Bind(R.id.findSupportButton) Button mFindSupportButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
         mAchieveButton.setOnClickListener(this);
         mStartButton.setOnClickListener(this);
+        mSavedSuppportButton.setOnClickListener(this);
+        mFindSupportButton.setOnClickListener(this);
     }
 
     @Override
@@ -35,6 +41,11 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(StartActivity.this, AchievementsActivity.class));
         } else if (v == mStartButton){
             startActivity(new Intent(StartActivity.this, CreateActivity.class));
+        } else if (v == mSavedSuppportButton){
+            Intent intent = new Intent(StartActivity.this, SavedMeetupActivity.class);
+            startActivity(intent);
+        } else if (v == mFindSupportButton) {Intent intent = new Intent(StartActivity.this, FindSupportActivity.class);
+            startActivity(intent);
         }
     }
 

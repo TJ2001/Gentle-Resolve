@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/zipInput"
-        android:hint="zip is already provided if you inputted before, or you can use search widget"
+        android:hint="zip"
         android:layout_marginTop="61dp"
         android:singleLine="true"
         android:imeOptions="actionDone"

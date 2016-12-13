@@ -7,7 +7,7 @@ public class Meetup {
     String name, description, photoLink, organizer, city, link;
 
     public Meetup(){};
-    public Meetup(String name, String description, String photoLink, String mOrganizer, String city, String mLink) {
+    public Meetup(String name, String description, String photoLink, String organizer, String city, String link) {
         this.name = name;
         this.description = description;
         this.photoLink = photoLink;

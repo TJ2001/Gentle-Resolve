@@ -45,4 +45,19 @@
         android:singleLine="true"
         android:imeOptions="actionDone" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set A Goal: &quot;I will...&quot;"
+        
+        android:id="@+id/textView"
+        android:background="@color/yellow"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/vision"
+        android:layout_alignStart="@+id/vision"
+        android:layout_marginTop="36dp"
+        android:layout_alignRight="@+id/vision"
+        android:layout_alignEnd="@+id/vision" />
+
 </RelativeLayout>
