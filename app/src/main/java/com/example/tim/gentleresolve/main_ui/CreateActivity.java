@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.SavedSearch;
+import com.example.tim.gentleresolve.models.Vision;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -84,8 +85,10 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void saveToFirebase(String vision) {
-        DatabaseReference mSetId = mVisionReference.push();
+        Vision visionObject = new Vision(vision);
+        mVisionReference.push().setValue(visionObject);
+//        DatabaseReference mSetId = mVisionReference.push();
 //        String generatedID = mSetId.getKey();
-        mSetId.setValue(vision);
+//        mSetId.setValue(vision);
     }
 }
