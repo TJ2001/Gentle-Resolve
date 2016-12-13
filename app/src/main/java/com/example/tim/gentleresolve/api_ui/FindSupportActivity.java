@@ -36,29 +36,6 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        mSearchedMeetupReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_SEARCHED_MEETUPS);
-
-        mSearchedMeetupReferenceListener = mSearchedMeetupReference.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot meetupSnapshot : dataSnapshot.getChildren()) {
-                    String passion = meetupSnapshot.getValue().toString();
-                    Log.d("Interest updated", "passion: " + passion);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-
-        });
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_support);
         ButterKnife.bind(this);
@@ -66,10 +43,8 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mSharedPreferences.edit();
 
-
         mFindMeetupsButton.setOnClickListener(this);
         mSavedMeetupsButton.setOnClickListener(this);
-
     }
 
     @Override
@@ -84,7 +59,7 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
             myIntent.putExtra("zip", zip);
             myIntent.putExtra("radius", radius);
             addToSharedPreferences(zip, passion);;
-            saveParamsToFirebase(passion, zip, radius);
+
             if(!(zip).equals("") && !(passion).equals("")) {
                 addToSharedPreferences(passion, zip);
             }
@@ -94,19 +69,6 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
             startActivity(intent);
         }
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedMeetupReference.removeEventListener(mSearchedMeetupReferenceListener);
-    }
-
-    private void saveParamsToFirebase(String passion, String zip, String radius) {
-        DatabaseReference mSetId = mSearchedMeetupReference.push();
-        String generatedID = mSetId.getKey();
-        mSetId.setValue(new SavedSearch(passion, zip, radius, generatedID));
-    }
-
 
     private void addToSharedPreferences(String passion, String zip) {
         Log.d("zip", "zip: " + zip);

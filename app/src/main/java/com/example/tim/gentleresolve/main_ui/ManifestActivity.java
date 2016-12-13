@@ -42,9 +42,9 @@ public class ManifestActivity extends AppCompatActivity{
         Intent intent = getIntent();
 
 
-        visions = intent.getStringArrayListExtra("visions");
-        Log.v(TAG, "intent: " + visions);
-        mListView.setAdapter(new MyListAdapter(this, R.layout.list_item, visions));
+//        visions = intent.getStringArrayListExtra("vision");
+//        Log.v(TAG, "intent: " + visions);
+//        mListView.setAdapter(new MyListAdapter(this, R.layout.list_item, visions));
         visions.add("First Item");
         visions.add("secoond Item");
 
