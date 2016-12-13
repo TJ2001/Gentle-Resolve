@@ -7,11 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".api_ui.FindSupportActivity">
+    tools:context=".api_ui.FindSupportActivity"
+    android:background="@color/orange">
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/passionInput"
         android:hint="interest/passion/goal"
         android:layout_marginTop="50dp"
@@ -19,11 +20,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:singleLine="true"
-        android:imeOptions="actionDone"/>
+        android:imeOptions="actionDone"
+        android:padding="10dp"
+        android:background="@drawable/border" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/zipInput"
         android:hint="zip"
         android:layout_marginTop="61dp"
@@ -31,11 +34,13 @@
         android:imeOptions="actionDone"
         android:layout_below="@+id/passionInput"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:padding="10dp"
+        android:background="@drawable/border" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/radiusInput"
         android:hint="distance willing to travel (in miles)"
         android:layout_marginTop="47dp"
@@ -43,7 +48,9 @@
         android:imeOptions="actionDone"
         android:layout_below="@+id/zipInput"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:padding="10dp"
+        android:background="@drawable/border" />
 
     <Button
         android:layout_width="300dp"
@@ -51,7 +58,8 @@
         android:text="Local Meetup Search"
         android:id="@+id/findMeetupsButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/blue" />
 
     <Button
         android:layout_width="300dp"
