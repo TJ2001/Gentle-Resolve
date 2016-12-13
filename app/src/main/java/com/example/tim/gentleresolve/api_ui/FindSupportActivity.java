@@ -23,8 +23,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class FindSupportActivity extends AppCompatActivity implements View.OnClickListener {
-    private DatabaseReference mSearchedMeetupReference;
-    private ValueEventListener mSearchedMeetupReferenceListener;
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
 

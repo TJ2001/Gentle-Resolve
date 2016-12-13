@@ -18,6 +18,9 @@ import android.widget.Toast;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
 import com.example.tim.gentleresolve.api_ui.ResultsListActivity;
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +29,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ManifestActivity extends AppCompatActivity{
+    private DatabaseReference mVisionReference;
+    private FirebaseListAdapter mFirebaseListAdapter;
+
     @Bind(R.id.visionListView) ListView mListView;
     @Bind(R.id.supportButton) Button mSupportButton;
 
-    private List<String> visions = new ArrayList<>();
+//    private List<String> visions = new ArrayList<>();
 
     public static final String TAG = CreateActivity.class.getSimpleName();
 //TODO fix issue with support button
@@ -37,16 +43,16 @@ public class ManifestActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_manifest);
         ButterKnife.bind(this);
-        Intent intent = getIntent();
 
-
+//        Intent intent = getIntent();
 //        visions = intent.getStringArrayListExtra("vision");
 //        Log.v(TAG, "intent: " + visions);
-//        mListView.setAdapter(new MyListAdapter(this, R.layout.list_item, visions));
-        visions.add("First Item");
-        visions.add("secoond Item");
+//        mListView.setAdapter(new MyListAdapter(this, R.layout.list_item, visions));g
+//        visions.add("First Item");
+//        visions.add("secoond Item");
 
         mSupportButton.setOnClickListener(new View.OnClickListener() {
             @Override
