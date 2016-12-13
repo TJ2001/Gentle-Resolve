@@ -7,19 +7,7 @@
         android:id="@+id/itemTextView"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="TextView"
-        android:layout_toLeftOf="@+id/doneButton"
-        android:layout_toStartOf="@+id/doneButton"
-        android:layout_alignBottom="@+id/doneButton" />
+        android:text="TextView" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Done"
-        android:id="@+id/doneButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
