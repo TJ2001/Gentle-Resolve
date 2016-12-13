@@ -52,7 +52,6 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
         nameTextView.setText(meetup.getName());
         cityTextView.setText(meetup.getCity());
         organizerTextView.setText(meetup.getOrganizer());
-        descriptionTextView.setText(meetup.getDescription());
     }
 
     @Override
