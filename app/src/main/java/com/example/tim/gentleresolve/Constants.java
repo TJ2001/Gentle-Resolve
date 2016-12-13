@@ -16,5 +16,5 @@ public class Constants {
     public static final String PREFERENCES_ZIP_KEY = "zip";
     public static final String FIREBASE_CHILD_VISIONS = "visions";
     public static final String FIREBASE_CHILD_MEETUPS = "meetups";
-
+    public static final String FIREBASE_QUERY_INDEX = "index";
 }

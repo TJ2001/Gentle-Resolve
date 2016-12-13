@@ -41,6 +41,7 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
         TextView nameTextView = (TextView) mView.findViewById(R.id.nameTextView);
         TextView cityTextView = (TextView) mView.findViewById(R.id.cityTextView);
         TextView organizerTextView = (TextView) mView.findViewById(R.id.organizerTextView);
+        TextView descriptionTextView = (TextView) mView.findViewById(R.id.descriptionTextView);
 
         Picasso.with(mContext)
                 .load(meetup.getPhotoLink())
@@ -51,6 +52,7 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
         nameTextView.setText(meetup.getName());
         cityTextView.setText(meetup.getCity());
         organizerTextView.setText(meetup.getOrganizer());
+        descriptionTextView.setText(meetup.getDescription());
     }
 
     @Override

@@ -60,18 +60,14 @@ public class ManifestActivity extends AppCompatActivity{
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_VISIONS);
 
-
         mVisionReferenceListener = mVisionReference.addValueEventListener(new ValueEventListener() {
 
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-            }
+            public void onDataChange(DataSnapshot dataSnapshot) {}
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
+            public void onCancelled(DatabaseError databaseError) {}
         });
-
 
         mVision = new FirebaseListAdapter<Vision>(this, Vision.class, R.layout.list_item, mVisionReference) {
 
@@ -85,93 +81,61 @@ public class ManifestActivity extends AppCompatActivity{
 
         mListView.setAdapter(mVision);
 
-
-
-
-
-
-
-
-
-
-//        ListAdapter adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, android.R.layout.two_line_list_item, mRef)
-//        {
-//            protected void populateView(View view, ChatMessage chatMessage)
-//            {
-//                ((TextView)view.findViewById(android.R.id.text1)).setText(chatMessage.getName());
-//                ((TextView)view.findViewById(android.R.id.text2)).setText(chatMessage.getMessage());
-//            }
-//        };
-//        listView.setListAdapter(adapter);
-
-
-
-//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-//                intent.putExtra("category", Parcels.wrap(mCategory.getItem(position)));
-//                startActivity(intent);
-//
-//            }
-//        });
-
-//        Intent intent = getIntent();
-//        visions = intent.getStringArrayListExtra("vision");
-//        Log.v(TAG, "intent: " + visions);
-//        mListView.setAdapter(new MyListAdapter(this, R.layout.list_item, visions));
-//        visions.add("First Item");
-//        visions.add("secoond Item");
+        mSupportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ManifestActivity.this, FindSupportActivity.class));
+            }
+        });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mVisionReference.removeEventListener(mVisionReferenceListener);
+    }
 
-//    private class MyListAdapter extends ArrayAdapter<String>{
-//        private int layout;
-//        public MyListAdapter(Context context, int resource, List<String> objects) {
-//            super(context, resource, objects);
-//            layout = resource;
+//    @Override
+//    public View getView(final int position, View convertView, ViewGroup parent) {
+//        ViewHolder mainViewholder = null;
+//        if(convertView == null) {
+//            LayoutInflater inflater = LayoutInflater.from(getContext());
+//            convertView = inflater.inflate(layout, parent, false);
+//            ViewHolder viewHolder = new ViewHolder();
+//            viewHolder.itemTextView = (TextView) convertView.findViewById(R.id.itemTextView);
+//            viewHolder.doneButton = (Button) convertView.findViewById(R.id.doneButton);
+//            viewHolder.supportButton = (Button) convertView.findViewById(R.id.supportButton);
+//
+//            convertView.setTag(viewHolder);
 //        }
+//        mainViewholder = (ViewHolder) convertView.getTag();
 //
-//        @Override
-//        public View getView(final int position, View convertView, ViewGroup parent) {
-//            ViewHolder mainViewholder = null;
-//            if(convertView == null) {
-//                LayoutInflater inflater = LayoutInflater.from(getContext());
-//                convertView = inflater.inflate(layout, parent, false);
-//                ViewHolder viewHolder = new ViewHolder();
-//                viewHolder.itemTextView = (TextView) convertView.findViewById(R.id.itemTextView);
-//                viewHolder.doneButton = (Button) convertView.findViewById(R.id.doneButton);
-//                viewHolder.supportButton = (Button) convertView.findViewById(R.id.supportButton);
-//
-//                convertView.setTag(viewHolder);
-//            }
-//            mainViewholder = (ViewHolder) convertView.getTag();
-//
-//            mainViewholder.doneButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    //TODO get position for list item, push the item into firebase via createActivity.class method.. make list.. output it same way as ManifestActivty... Delete the item of Firbase Visions... create Object in Achievements
+//        mainViewholder.doneButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //TODO get position for list item, push the item into firebase via createActivity.class method.. make list.. output it same way as ManifestActivty... Delete the item of Firbase Visions... create Object in Achievements
 //
 ////                    String vision = visions.get(position).toString();
-//                    Intent intent = new Intent(ManifestActivity.this, AchievementsActivity.class);
+//                Intent intent = new Intent(ManifestActivity.this, AchievementsActivity.class);
 ////                    intent.putExtra("vision", vision);
-//                    Log.v(TAG, "intent from Done Button: " + intent);
-//                    startActivity(intent);
-//                }
-//            });
+//                Log.v(TAG, "intent from Done Button: " + intent);
+//                startActivity(intent);
+//            }
+//        });
 //
 //
-//            mainViewholder.itemTextView.setText(getItem(position));
+//        mainViewholder.itemTextView.setText(getItem(position));
 //
-//            return convertView;
-//        }
+//        return convertView;
 //    }
-
-    public class ViewHolder {
-
-        ImageView thumbnail;
-        TextView itemTextView;
-        Button doneButton;
-        Button supportButton;
-    }
+//
+//    public class ViewHolder {
+//        ImageView thumbnail;
+//        TextView itemTextView;
+//        Button doneButton;
+//        Button supportButton;
+//    }
 }
+
+
+

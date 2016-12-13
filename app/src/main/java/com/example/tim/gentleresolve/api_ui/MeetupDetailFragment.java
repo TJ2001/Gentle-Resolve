@@ -65,6 +65,7 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
         mName.setText(mMeetup.getName());
         mCity.setText(mMeetup.getCity());
         mOrganizer.setText("Organizer:   " + mMeetup.getOrganizer());
+        mDescription.setText(mMeetup.getDescription());
 
         mLink.setOnClickListener(this);
         mSaveMeetupButton.setOnClickListener(this);

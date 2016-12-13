@@ -10,13 +10,6 @@
         android:layout_height="match_parent"
         android:background="@color/orange">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:id="@+id/meetupImageView"
-            android:src="@drawable/meetup"
-            android:scaleType="centerCrop" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="88dp"
@@ -60,6 +53,13 @@
                 android:textColor="@android:color/black"
                 android:textStyle="italic" />
         </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:id="@+id/meetupImageView"
+            android:src="@drawable/meetup"
+            android:scaleType="centerCrop" />
 
         <RelativeLayout
             android:layout_width="match_parent"
