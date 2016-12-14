@@ -44,58 +44,71 @@
         android:textColor="@color/orange"
         android:textColorHighlight="@color/abc_background_cache_hint_selector_material_dark" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/linearLayout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="5dp">
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_weight=".30"
-            android:text="Find\nSupport"
-            android:id="@+id/findSupportButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/oval"
-            android:gravity="center"
-            android:typeface="monospace" />
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_weight=".28"
-            android:text="Saved\n Support"
-            android:id="@+id/savedSuppportButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/oval"
-            android:allowUndo="false"
-            android:gravity="center"
-            android:typeface="monospace" />
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_weight=".28"
-            android:text="create\nvision"
-            android:id="@+id/startButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/oval"
-            android:gravity="center"
-            android:typeface="monospace" />
-    </LinearLayout>
 
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:id="@+id/layoutContainer" android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.35">
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.65">
+
+            <Button
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="120dp"
+                android:layout_height="75dp"
+                android:text="My Team"
+                android:id="@+id/savedSuppportButton"
+                android:background="@color/yellow"
+                android:visibility="visible" />
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="75dp"
+                android:text="Find Support"
+                android:id="@+id/findSupportButton"
+                android:background="@color/purple"
+                android:visibility="visible"
+                android:layout_below="@+id/savedSuppportButton"
+                android:layout_alignLeft="@+id/savedSuppportButton"
+                android:layout_alignStart="@+id/savedSuppportButton" />
+
+            <Button
+                android:text="In Motion"
+                android:layout_height="75dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/inMotionButton"
+                android:background="@color/orange"
+                android:layout_width="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="58dp"
+                android:layout_marginEnd="58dp" />
+
+            <Button
+                android:text="Create Vision"
+                android:id="@+id/startButton"
+                android:background="@color/blue"
+                android:layout_width="120dp"
+                android:layout_height="75dp"
+                android:layout_marginRight="58dp"
+                android:layout_below="@+id/inMotionButton"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
 </RelativeLayout>

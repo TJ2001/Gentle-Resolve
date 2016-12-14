@@ -8,8 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
 import com.example.tim.gentleresolve.api_ui.SavedMeetupActivity;
@@ -23,6 +21,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.startButton) Button mStartButton;
     @Bind(R.id.savedSuppportButton) Button mSavedSuppportButton;
     @Bind(R.id.findSupportButton) Button mFindSupportButton;
+    @Bind(R.id.inMotionButton) Button mInMotionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +32,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         mStartButton.setOnClickListener(this);
         mSavedSuppportButton.setOnClickListener(this);
         mFindSupportButton.setOnClickListener(this);
+        mInMotionButton.setOnClickListener(this);
     }
 
     @Override
@@ -45,6 +45,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             Intent intent = new Intent(StartActivity.this, SavedMeetupActivity.class);
             startActivity(intent);
         } else if (v == mFindSupportButton) {Intent intent = new Intent(StartActivity.this, FindSupportActivity.class);
+            startActivity(intent);
+        } else if (v == mInMotionButton) {
+            Intent intent = new Intent(StartActivity.this, ManifestActivity.class);
             startActivity(intent);
         }
     }

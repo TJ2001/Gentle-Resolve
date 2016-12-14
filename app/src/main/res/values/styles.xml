@@ -7,7 +7,9 @@
         <item name="colorPrimaryDark">@color/blue</item>
         <item name="colorAccent">@color/yellow</item>
         <item name="android:actionMenuTextColor">@color/yellow</item>
+]
     </style>
+
 
     <style name="StartTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
 

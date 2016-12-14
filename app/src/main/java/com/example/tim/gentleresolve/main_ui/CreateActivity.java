@@ -61,13 +61,11 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String vision = mVision.getText().toString();
-//                visions.add(vision);
                 if ((vision.length() < 3)) {
                     Toast.makeText(CreateActivity.this, "Our visions need to be more detailed. Good effort, but please try again.", Toast.LENGTH_LONG).show();
                 }else{
                     mVision.setText("");
                     Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
-//                    intent.putStringArrayListExtra("visions", visions);
                     Log.v(TAG, "intent: " + intent);
                     saveToFirebase(vision);
                     startActivity(intent);
@@ -99,11 +97,5 @@ public class CreateActivity extends AppCompatActivity {
         pushRef.setValue(mVision);
 
         mVisionReference.push().setValue(mVision);
-
-
-
-//        DatabaseReference mSetId = mVisionReference.push();
-//        String pushID = mSetId.getKey();
-//        mSetId.setValue(vision);
     }
 }
