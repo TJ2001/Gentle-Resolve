@@ -50,10 +50,10 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
             myIntent.putExtra("interest", passion);
             myIntent.putExtra("zip", zip);
             myIntent.putExtra("radius", radius);
-            addToSharedPreferences(zip, passion);;
+//            addToSharedPreferences(zip, radius);
 
-            if(!(zip).equals("") && !(passion).equals("")) {
-                addToSharedPreferences(passion, zip);
+            if(!(zip).equals("") && !(radius).equals("")) {
+                addToSharedPreferences(zip, radius);
             }
             startActivity(myIntent);
         } else if (v == mSavedMeetupsButton){
@@ -62,12 +62,13 @@ public class FindSupportActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    private void addToSharedPreferences(String passion, String zip) {
-        Log.d("zip", "zip: " + zip);
-        Log.d("passion", "passion: " + passion);
+    private void addToSharedPreferences(String zip, String radius) {
+
         mEditor.putString(Constants.PREFERENCES_ZIP_KEY, zip);
-        mEditor.putString(Constants.PREFERENCE_PASSION_KEY, passion);
+        mEditor.putString(Constants.PREFERENCES_RADIUS_KEY, radius);
         mEditor.apply();
+        Log.d("zip", "LogD FindSupport zip: " + zip);
+        Log.d("radius", "LogD FindSupport radius: " + radius);
     }
 
 }

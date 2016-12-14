@@ -14,7 +14,9 @@ public class Constants {
     public static final String RESULT_LIMIT = "page";
     public static final String PREFERENCE_PASSION_KEY = "passion";
     public static final String PREFERENCES_ZIP_KEY = "zip";
+    public static final String PREFERENCES_RADIUS_KEY = "radius";
     public static final String FIREBASE_CHILD_VISIONS = "visions";
     public static final String FIREBASE_CHILD_MEETUPS = "meetups";
     public static final String FIREBASE_QUERY_INDEX = "index";
+    public static final String MY_PREFS = "myPrefs";
 }

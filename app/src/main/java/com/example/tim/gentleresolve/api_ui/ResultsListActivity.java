@@ -36,7 +36,7 @@ import okhttp3.Response;
 public class ResultsListActivity extends AppCompatActivity {
     private SharedPreferences.Editor mEditor;
     private SharedPreferences mSharedPreferences;
-    private String mRecentPassion, mRecentZip, mRecentRadius;
+    private String mRecentZip, mRecentRadius;
     public static final String TAG = ResultsListActivity.class.getSimpleName();
 
     @Bind(R.id.listView)
@@ -58,10 +58,11 @@ public class ResultsListActivity extends AppCompatActivity {
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentZip = mSharedPreferences.getString(Constants.PREFERENCES_ZIP_KEY, null);
-        mRecentPassion = mSharedPreferences.getString(Constants.PREFERENCE_PASSION_KEY, null);
-        Log.d("Shared Pref Zip", mRecentZip);
-        if (mRecentZip != null && mRecentPassion != null){
-            getMeetup(mRecentPassion, mRecentZip, "25");
+        mRecentRadius = mSharedPreferences.getString(Constants.PREFERENCES_RADIUS_KEY, null);
+        Log.d("Shared Pref Zip", "LogD RecentZip: " + mRecentZip);
+        Log.d("Shared Pref Radius", "RecentRadius: " + mRecentRadius);
+        if (mRecentZip != null && mRecentRadius != null){
+            getMeetup(mRecentZip, interest, mRecentRadius);
         }
     }
 
@@ -81,12 +82,8 @@ public class ResultsListActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                addToSharedPreferences(query);
-                if(query.length() == 5){
-                    getMeetup(mRecentPassion, query, "25");
-                } else if (query.length() < 5 || query.length() > 5){
-                    getMeetup(query, mRecentZip, "25");
-                }
+//                addToSharedPreferences(query);
+                getMeetup(mRecentZip, query, mRecentRadius);
                 return false;
             }
 
@@ -103,10 +100,10 @@ public class ResultsListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void getMeetup(String passion, String zip, String radius) {
+    private void getMeetup(String zip, String passion, String radius) {
         final MeetupServices MeetupFINDER = new MeetupServices();
 
-        MeetupFINDER.findSupport(passion, zip, radius, new Callback() {
+        MeetupFINDER.findSupport(zip, passion, radius, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
@@ -143,7 +140,7 @@ public class ResultsListActivity extends AppCompatActivity {
         });
     }
 
-    private void addToSharedPreferences(String zip) {
-        mEditor.putString(Constants.PREFERENCES_ZIP_KEY, zip).apply();
-    }
+//    private void addToSharedPreferences(String zip) {
+//        mEditor.putString(Constants.PREFERENCES_ZIP_KEY, zip).apply();
+//    }
 }
