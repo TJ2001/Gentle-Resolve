@@ -3,6 +3,7 @@ package com.example.tim.gentleresolve.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,6 +12,8 @@ import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.api_ui.ResultsDetailActivity;
 import com.example.tim.gentleresolve.models.Meetup;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,6 +52,7 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
                 .centerCrop()
                 .into(meetupImageView);
 
+//        descriptionTextView.setText(meetup.getDescription());
         nameTextView.setText(meetup.getName());
         cityTextView.setText(meetup.getCity());
         organizerTextView.setText(meetup.getOrganizer());
@@ -57,19 +61,23 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
     @Override
     public void onClick(View view) {
         final ArrayList<Meetup> meetups = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEETUPS);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userId = user.getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEETUPS).child(userId);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     meetups.add(snapshot.getValue(Meetup.class));
+                    Log.v("meetup", "snapshot: " + snapshot.getValue(Meetup.class));
                 }
 
-                int itemPosition = getLayoutPosition();
 
+                int itemPosition = getLayoutPosition();
+                Log.v("position", "itemPosition: " + itemPosition);
                 Intent intent = new Intent(mContext, ResultsDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("position", itemPosition);
                 intent.putExtra("meetups", Parcels.wrap(meetups));
 
                 mContext.startActivity(intent);
