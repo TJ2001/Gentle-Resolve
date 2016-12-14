@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.models.Vision;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -82,8 +84,24 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void saveToFirebase(String vision) {
-        Vision visionObject = new Vision(vision);
-        mVisionReference.push().setValue(visionObject);
+        Vision mVision = new Vision(vision);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        DatabaseReference restaurantRef = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_VISIONS)
+                .child(uid);
+
+        DatabaseReference pushRef = restaurantRef.push();
+        String pushId = pushRef.getKey();
+        mVision.setPushId(pushId);
+        pushRef.setValue(mVision);
+
+        mVisionReference.push().setValue(mVision);
+
+
+
 //        DatabaseReference mSetId = mVisionReference.push();
 //        String pushID = mSetId.getKey();
 //        mSetId.setValue(vision);

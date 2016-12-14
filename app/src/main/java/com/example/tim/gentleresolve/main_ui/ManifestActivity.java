@@ -27,6 +27,8 @@ import com.example.tim.gentleresolve.models.Vision;
 import com.firebase.client.Firebase;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,10 +57,13 @@ public class ManifestActivity extends AppCompatActivity{
         setContentView(R.layout.activity_manifest);
         ButterKnife.bind(this);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
         mVisionReference = FirebaseDatabase
                 .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_VISIONS);
+                .getReference(Constants.FIREBASE_CHILD_VISIONS)
+                .child(uid);
 
         mVisionReferenceListener = mVisionReference.addValueEventListener(new ValueEventListener() {
 
@@ -94,47 +99,6 @@ public class ManifestActivity extends AppCompatActivity{
         super.onDestroy();
         mVisionReference.removeEventListener(mVisionReferenceListener);
     }
-
-//    @Override
-//    public View getView(final int position, View convertView, ViewGroup parent) {
-//        ViewHolder mainViewholder = null;
-//        if(convertView == null) {
-//            LayoutInflater inflater = LayoutInflater.from(getContext());
-//            convertView = inflater.inflate(layout, parent, false);
-//            ViewHolder viewHolder = new ViewHolder();
-//            viewHolder.itemTextView = (TextView) convertView.findViewById(R.id.itemTextView);
-//            viewHolder.doneButton = (Button) convertView.findViewById(R.id.doneButton);
-//            viewHolder.supportButton = (Button) convertView.findViewById(R.id.supportButton);
-//
-//            convertView.setTag(viewHolder);
-//        }
-//        mainViewholder = (ViewHolder) convertView.getTag();
-//
-//        mainViewholder.doneButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //TODO get position for list item, push the item into firebase via createActivity.class method.. make list.. output it same way as ManifestActivty... Delete the item of Firbase Visions... create Object in Achievements
-//
-////                    String vision = visions.get(position).toString();
-//                Intent intent = new Intent(ManifestActivity.this, AchievementsActivity.class);
-////                    intent.putExtra("vision", vision);
-//                Log.v(TAG, "intent from Done Button: " + intent);
-//                startActivity(intent);
-//            }
-//        });
-//
-//
-//        mainViewholder.itemTextView.setText(getItem(position));
-//
-//        return convertView;
-//    }
-//
-//    public class ViewHolder {
-//        ImageView thumbnail;
-//        TextView itemTextView;
-//        Button doneButton;
-//        Button supportButton;
-//    }
 }
 
 
