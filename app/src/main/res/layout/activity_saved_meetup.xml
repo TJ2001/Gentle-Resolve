@@ -3,7 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tim.gentleresolve.api_ui.SavedMeetupActivity">
+    tools:context="com.example.tim.gentleresolve.api_ui.SavedMeetupActivity"
+    android:background="@color/orange">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/team"
+        android:scaleType="centerCrop" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

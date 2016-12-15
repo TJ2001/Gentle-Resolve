@@ -45,7 +45,6 @@ import butterknife.ButterKnife;
 public class ManifestActivity extends AppCompatActivity{
     private DatabaseReference mVisionReference;
     private FirebaseListAdapter<Vision> mVision;
-    private FirebaseListAdapter mFirebaseAdapter;
     private ValueEventListener mVisionReferenceListener;
 
     @Bind(R.id.visionListView) ListView mListView;

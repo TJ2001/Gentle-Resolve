@@ -67,9 +67,11 @@
                 android:layout_width="120dp"
                 android:layout_height="75dp"
                 android:text="My Team"
+                android:textStyle="bold"
                 android:id="@+id/savedSuppportButton"
                 android:background="@color/yellow"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:textColor="@color/purple" />
 
             <Button
                 android:layout_width="120dp"
@@ -78,33 +80,38 @@
                 android:id="@+id/findSupportButton"
                 android:background="@color/purple"
                 android:visibility="visible"
+                android:textStyle="bold"
                 android:layout_below="@+id/savedSuppportButton"
                 android:layout_alignLeft="@+id/savedSuppportButton"
-                android:layout_alignStart="@+id/savedSuppportButton" />
+                android:layout_alignStart="@+id/savedSuppportButton"
+                android:textColor="@color/yellow" />
 
             <Button
                 android:text="In Motion"
                 android:layout_height="75dp"
                 android:layout_marginTop="20dp"
                 android:id="@+id/inMotionButton"
-                android:background="@color/orange"
+                android:background="@color/darkBlue"
                 android:layout_width="120dp"
+                android:textStyle="bold"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="45dp"/>
+                android:layout_marginRight="45dp"
+                android:textColor="@color/orange" />
 
             <Button
                 android:text="Create Vision"
                 android:id="@+id/startButton"
-                android:background="@color/blue"
+                android:background="@color/orange"
                 android:layout_width="120dp"
                 android:layout_height="75dp"
                 android:layout_marginRight="45dp"
+                android:textStyle="bold"
                 android:layout_below="@+id/inMotionButton"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                />
+                android:textColor="@color/darkBlue" />
 
 
         </RelativeLayout>
