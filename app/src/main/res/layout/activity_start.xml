@@ -66,7 +66,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="120dp"
                 android:layout_height="75dp"
-                android:text="My Team"
+                android:text="My\nTeam"
                 android:textStyle="bold"
                 android:id="@+id/savedSuppportButton"
                 android:background="@color/yellow"
@@ -76,7 +76,7 @@
             <Button
                 android:layout_width="120dp"
                 android:layout_height="75dp"
-                android:text="Find Support"
+                android:text="Find\nSupport"
                 android:id="@+id/findSupportButton"
                 android:background="@color/purple"
                 android:visibility="visible"
@@ -87,7 +87,7 @@
                 android:textColor="@color/yellow" />
 
             <Button
-                android:text="In Motion"
+                android:text="In\nMotion"
                 android:layout_height="75dp"
                 android:layout_marginTop="20dp"
                 android:id="@+id/inMotionButton"
@@ -101,7 +101,7 @@
                 android:textColor="@color/orange" />
 
             <Button
-                android:text="Create Vision"
+                android:text="Create \nVision"
                 android:id="@+id/startButton"
                 android:background="@color/orange"
                 android:layout_width="120dp"

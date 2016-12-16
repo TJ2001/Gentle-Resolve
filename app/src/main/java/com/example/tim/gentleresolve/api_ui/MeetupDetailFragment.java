@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,7 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mMeetup = Parcels.unwrap(getArguments().getParcelable("meetup"));
     }
 
@@ -65,6 +67,8 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
         String mDescriptionString;
         View view = inflater.inflate(R.layout.fragment_meetup_detail, container, false);
         ButterKnife.bind(this, view);
+
+        mDescription.setMovementMethod(new ScrollingMovementMethod());
 
         Picasso.with(view.getContext()).load(mMeetup.getPhotoLink()).resize(MAX_WIDTH, MAX_HEIGHT).centerCrop().into(mPhotolink);
 
