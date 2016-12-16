@@ -73,7 +73,7 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
         Picasso.with(view.getContext()).load(mMeetup.getPhotoLink()).resize(MAX_WIDTH, MAX_HEIGHT).centerCrop().into(mPhotolink);
 
         mName.setText(mMeetup.getName());
-        mCity.setText(mMeetup.getCity());
+        mCity.setText("City: " + mMeetup.getCity());
         mOrganizer.setText("Organizer:   " + mMeetup.getOrganizer());
 
         mDescriptionString = stripHtml(mMeetup.getDescription());

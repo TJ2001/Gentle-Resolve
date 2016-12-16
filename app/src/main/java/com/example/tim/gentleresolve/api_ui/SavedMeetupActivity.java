@@ -4,11 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
+import com.example.tim.gentleresolve.adapters.FirebaseMeetupListAdapter;
 import com.example.tim.gentleresolve.adapters.FirebaseMeetupViewHolder;
 import com.example.tim.gentleresolve.models.Meetup;
+import com.example.tim.gentleresolve.util.OnStartDragListener;
+import com.example.tim.gentleresolve.util.SimpleItemTouchHelperCallback;
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,9 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SavedMeetupActivity extends AppCompatActivity {
+public class SavedMeetupActivity extends AppCompatActivity implements OnStartDragListener {
     private DatabaseReference mMeetupReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private ItemTouchHelper mItemTouchHelper;
 
     @Bind(R.id.recyclerView)
     RecyclerView mRecyclerView;
@@ -39,19 +45,27 @@ public class SavedMeetupActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Meetup, FirebaseMeetupViewHolder>
-                (Meetup.class, R.layout.meetup_list_item_drag, FirebaseMeetupViewHolder.class, mMeetupReference) {
+        mFirebaseAdapter = new FirebaseMeetupListAdapter(Meetup.class, R.layout.meetup_list_item_drag, FirebaseMeetupViewHolder.class, mMeetupReference, this, this);
 
-            @Override
-            protected void populateViewHolder(FirebaseMeetupViewHolder viewHolder,
-                                              Meetup model, int position) {
-                viewHolder.bindMeetup(model);
-            }
-        };
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
+
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
+
+//            @Override
+//            protected void populateViewHolder(FirebaseMeetupViewHolder viewHolder,
+//                                              Meetup model, int position) {
+//                viewHolder.bindMeetup(model);
+//            }
+//        };
+//        mRecyclerView.setHasFixedSize(true);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mFirebaseAdapter);
+//    }
 
     @Override
     protected void onDestroy() {
@@ -59,4 +73,8 @@ public class SavedMeetupActivity extends AppCompatActivity {
         mFirebaseAdapter.cleanup();
     }
 
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
+    }
 }

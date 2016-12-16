@@ -34,7 +34,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@color/orange"
+        android:background="@color/white"
         android:layout_height="match_parent"
         android:layout_margin="2dp"
         android:layout_marginBottom="2dp"
@@ -45,10 +45,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/nameTextView"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:textColor="@color/darkBlue"
             android:textStyle="bold"
-            android:text="Meetup Name"                          android:background="@color/orange" />
+            android:text="Meetup Name"                          android:background="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,8 +59,9 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textStyle="italic"
-            android:background="@color/orange"
-            android:textColor="@color/colorAccent" />
+            android:background="@color/white"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp" />
 
 
 
@@ -72,6 +73,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:textColor="@color/darkBlue"
-            android:background="@color/orange" />
+            android:background="@color/white"
+            android:textSize="15sp" />
     </LinearLayout>
 </LinearLayout>

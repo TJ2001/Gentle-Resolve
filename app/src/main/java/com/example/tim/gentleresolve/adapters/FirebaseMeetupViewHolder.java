@@ -28,6 +28,7 @@ import java.util.ArrayList;
 public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
+    public ImageView mMeetupImageView;
 
     View mView;
     Context mContext;
@@ -40,6 +41,7 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
     }
 
     public void bindMeetup(Meetup meetup) {
+        mMeetupImageView = (ImageView) mView.findViewById(R.id.meetupImageView);
         ImageView meetupImageView = (ImageView) mView.findViewById(R.id.meetupImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.nameTextView);
         TextView cityTextView = (TextView) mView.findViewById(R.id.cityTextView);
@@ -52,7 +54,7 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
                 .into(meetupImageView);
 
         nameTextView.setText(meetup.getName());
-        cityTextView.setText(meetup.getCity());
+        cityTextView.setText("City: " + meetup.getCity());
         organizerTextView.setText("Organizer: " + meetup.getOrganizer());
     }
 
