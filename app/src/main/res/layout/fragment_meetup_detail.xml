@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            >
+            android:background="@color/white">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:layout_weight="0.7"
                 android:id="@+id/meetupImageView"
                 android:src="@drawable/meetup"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 />
@@ -34,7 +34,7 @@
                 android:text="GroupName"
                 android:layout_weight="0.2"
                 android:id="@+id/meetupNameTextView"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
                 android:textSize="22sp"
@@ -57,7 +57,7 @@
                     android:text="We are a group of professional developers in the tech world..."
                     android:drawablePadding="4dp"
                     android:id="@+id/descriptionTextView"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
@@ -65,32 +65,33 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:scrollbars = "vertical"
-                    android:maxLines = "100"/>
+                    android:maxLines = "100"
+                    android:background="@drawable/blue_border" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Organizer:   Beth Stevens"
                     android:id="@+id/organizerTextView"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/darkBlue"
                     android:textStyle="bold"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:lines="4"
                     android:layout_toRightOf="@+id/descriptionTextView" android:layout_toEndOf="@+id/descriptionTextView"
-                    android:background="@color/black" />
+                    android:background="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brunch, American"
                 android:id="@+id/cityTextView"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textStyle="italic"
                 android:layout_above="@+id/websiteTextView"
                 android:layout_toRightOf="@+id/descriptionTextView"
                 android:layout_below="@+id/organizerTextView"
-                android:background="@color/black"
+                android:background="@color/white"
                 android:layout_alignLeft="@+id/organizerTextView"
                 android:layout_alignRight="@+id/organizerTextView"
                 android:layout_alignParentRight="true"
@@ -103,7 +104,7 @@
                 android:id="@+id/websiteTextView"
                 android:drawableBottom="@drawable/ic_exit_to_app_black_24dp"
                 android:drawablePadding="3dp"
-                android:background="@drawable/blue_border"
+                android:background="@color/blue"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
