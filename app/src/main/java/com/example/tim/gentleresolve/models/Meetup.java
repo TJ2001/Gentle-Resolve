@@ -4,7 +4,7 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Meetup {
-    String name, description, photoLink, organizer, city, link, pushId;
+    String name, description, photoLink, organizer, city, link, pushId, index;
 
     public Meetup(){};
 
@@ -15,6 +15,7 @@ public class Meetup {
         this.organizer = organizer;
         this.city = city;
         this.link = link;
+        this.index = "not_specified";
     }
 
     public String getName() {
@@ -47,5 +48,13 @@ public class Meetup {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 }
