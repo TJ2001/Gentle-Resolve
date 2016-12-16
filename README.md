@@ -28,7 +28,7 @@ _The purpose of this application will be to exemplify things taught in the Epico
 
 ## Known Bugs
 
-_It's mostly bug free. Older browsers might have issues._
+_It's mostly bug free._
 
 ## Support and contact details
 
