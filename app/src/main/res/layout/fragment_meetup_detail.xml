@@ -1,122 +1,142 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tim.gentleresolve.api_ui.MeetupDetailFragment">
-
+    tools:context=".main_ui.StartActivity"
+    android:orientation="vertical">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/orange">
+        android:layout_height="0dip"
+        android:layout_weight="0.45"
+        android:background="@color/black">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="88dp"
-            android:background="@color/blue"
-            android:paddingTop="20dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="20dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/black">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="0.9"
+                android:id="@+id/meetupImageView"
+                android:src="@drawable/meetup"
+                android:scaleType="fitCenter"
+                android:layout_margin="10dp"
+                />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
                 android:text="GroupName"
+                android:layout_weight="0.3"
                 android:id="@+id/meetupNameTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:maxWidth="260dp"
-                android:textSize="20sp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Brunch, American"
-                android:id="@+id/cityTextView"
-                android:layout_below="@+id/meetupNameTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textColor="@android:color/black"
-                android:textStyle="italic" />
-        </RelativeLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="252dp"
-            android:id="@+id/meetupImageView"
-            android:src="@drawable/meetup"
-            android:scaleType="centerCrop"
-            />
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="23sp"
+                android:textIsSelectable="false" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.35"
+        android:background="@color/orange">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_above="@+id/saveMeetupButton"
-                android:layout_alignParentTop="true"
-                android:weightSum="1">
+                <TextView
+                    android:layout_width="275dp"
+                    android:layout_height="match_parent"
+                    android:text="We are a group of professional developers in the tech world..."
+                    android:drawablePadding="4dp"
+                    android:id="@+id/descriptionTextView"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:scrollbars = "vertical"
+                    android:maxLines = "100"
+                    android:background="@drawable/blue_border" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Organizer:   Beth Stevens"
                     android:id="@+id/organizerTextView"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/darkBlue"
                     android:textStyle="bold"
-                    android:layout_alignParentBottom="true"
+                    android:lines="4"
+                    android:layout_toRightOf="@+id/descriptionTextView"
+                    android:background="@drawable/blue_border_top"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:text="We are a group of professional developers in the tech world..."
-                    android:drawablePadding="4dp"
-                    android:id="@+id/descriptionTextView"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center_vertical"
-                    android:layout_weight="0.45" />
-
-
-            </LinearLayout>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Save Meetup"
-                android:id="@+id/saveMeetupButton"
-                android:layout_alignParentBottom="true"
-                android:background="@color/yellow"
-                android:textColor="@color/purple"
-                android:textSize="15sp" />
+                    android:textAlignment="center"
+                    android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View on Meeetup"
+                android:text="Brunch, American"
+                android:id="@+id/cityTextView"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_above="@+id/websiteTextView"
+                android:layout_toRightOf="@+id/descriptionTextView"
+                android:layout_below="@+id/organizerTextView"
+                android:background="@color/white"
+                android:layout_alignLeft="@+id/organizerTextView"
+                android:layout_alignRight="@+id/organizerTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:text="Meeetup\nWebpage"
                 android:id="@+id/websiteTextView"
-                android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
-                android:drawablePadding="4dp"
-                android:textColor="@android:color/white"
+                android:drawableBottom="@drawable/ic_exit_to_app_black_24dp"
+                android:drawablePadding="3dp"
+                android:background="@color/blue"
+                android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:gravity="center"
-                android:layout_above="@+id/saveMeetupButton"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignBottom="@+id/descriptionTextView"
+                android:lines="2"
+                android:layout_alignLeft="@+id/cityTextView"
+                android:layout_alignRight="@+id/cityTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center" />
+
         </RelativeLayout>
     </LinearLayout>
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.15"
+        android:background="@color/orange">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Meetup"
+            android:id="@+id/saveMeetupButton"
+
+            android:layout_alignParentBottom="true"
+            android:background="@color/yellow"
+            android:textColor="@color/purple"
+            android:textSize="15sp"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+</LinearLayout>

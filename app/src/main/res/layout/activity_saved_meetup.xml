@@ -10,11 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
+        android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/team"
-        android:scaleType="centerCrop" />
+        android:src="@drawable/team" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerTabStrip;
+import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.parceler.Parcels;
 
 import butterknife.Bind;
@@ -54,25 +59,29 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mMeetup = Parcels.unwrap(getArguments().getParcelable("meetup"));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        String mDescriptionString;
         View view = inflater.inflate(R.layout.fragment_meetup_detail, container, false);
         ButterKnife.bind(this, view);
+
+        mDescription.setMovementMethod(new ScrollingMovementMethod());
 
         Picasso.with(view.getContext()).load(mMeetup.getPhotoLink()).resize(MAX_WIDTH, MAX_HEIGHT).centerCrop().into(mPhotolink);
 
         mName.setText(mMeetup.getName());
-        mCity.setText(mMeetup.getCity());
+        mCity.setText("City: " + mMeetup.getCity());
         mOrganizer.setText("Organizer:   " + mMeetup.getOrganizer());
-        mDescription.setText(mMeetup.getDescription());
+
+        mDescriptionString = stripHtml(mMeetup.getDescription());
+        mDescription.setText(mDescriptionString);
 
         mLink.setOnClickListener(this);
         mSaveMeetupButton.setOnClickListener(this);
-
-//        final MeetupServices meetupFinder = new MeetupServices();
 
         return view;
     }
@@ -97,5 +106,9 @@ public class MeetupDetailFragment extends Fragment implements View.OnClickListen
             pushRef.setValue(mMeetup);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public String stripHtml(String html) {
+        return Html.fromHtml(html).toString();
     }
 }
