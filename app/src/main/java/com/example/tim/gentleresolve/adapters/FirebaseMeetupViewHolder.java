@@ -12,6 +12,7 @@ import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.api_ui.ResultsDetailActivity;
 import com.example.tim.gentleresolve.models.Meetup;
+import com.example.tim.gentleresolve.util.ItemTouchHelperViewHolder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +26,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder {
+public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
     public ImageView mMeetupImageView;
@@ -58,34 +59,15 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder {
         organizerTextView.setText("Organizer: " + meetup.getOrganizer());
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        final ArrayList<Meetup> meetups = new ArrayList<>();
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String userId = user.getUid();
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEETUPS).child(userId);
-//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    meetups.add(snapshot.getValue(Meetup.class));
-//                    Log.v("meetup", "snapshot: " + snapshot.getValue(Meetup.class));
-//                }
-//
-//
-//                int itemPosition = getLayoutPosition();
-//                Log.v("position", "itemPosition: " + itemPosition);
-//                Intent intent = new Intent(mContext, ResultsDetailActivity.class);
-//                intent.putExtra("position", itemPosition);
-//                intent.putExtra("meetups", Parcels.wrap(meetups));
-//
-//                mContext.startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });
-//    }
+    @Override
+    public void onItemSelected() {
+        Log.d("Animation", "onItemSelected");
+        // we will add animations here
+    }
+
+    @Override
+    public void onItemClear() {
+        Log.d("Animation", "onItemClear");
+        // we will add animations here
+    }
 }

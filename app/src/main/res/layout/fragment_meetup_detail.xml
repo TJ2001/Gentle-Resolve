@@ -82,7 +82,7 @@
                     android:textAlignment="center"
                     android:textSize="15sp" />
 
-            <TextView
+         g   <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brunch, American"
