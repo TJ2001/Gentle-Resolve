@@ -9,72 +9,150 @@
     android:gravity="center"
     android:orientation="horizontal">
 
-    <Space
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2" />
+        android:layout_height="180dp"
+        android:layout_weight="0.2"
+        android:text = "\n\n\n\n\nR"
+        android:id="@+id/spaceOne"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/black" />
 
-    <ImageView
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_weight="0.15"
         android:id="@+id/rectangleOne"
         android:background="@drawable/rectangle"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:text = "G"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-    <Space
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"/>
+        android:layout_height="180dp"
+        android:layout_weight="0.2"
+        android:text = "\n\n\n\n\nE"
+        android:id="@+id/spaceTwo"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
 
-    <ImageView
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_weight="0.15"
         android:id="@+id/rectangleTwo"
-        android:background="@color/orange" />
+        android:background="@color/orange"
+        android:text = "E"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-    <Space
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"/>
+        android:layout_height="180dp"
+        android:layout_weight="0.2"
+        android:text = "\n\n\n\n\nS"
+        android:id="@+id/spaceThree"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
 
-    <ImageView
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_weight="0.15"
         android:id="@+id/rectangleThree"
-        android:background="@drawable/rectangle" />
+        android:background="@drawable/rectangle"
+        android:text = "N"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-    <Space
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2" />
+        android:layout_height="180dp"
+        android:layout_weight="0.2"
+        android:text = "\n\n\n\n\nO"
+        android:id="@+id/spaceFour"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
 
-    <ImageView
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_weight="0.15"
         android:id="@+id/rectangleFour"
-        android:background="@color/orange" />
+        android:background="@color/orange"
+        android:text = "T"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-    <Space
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"/>
+        android:layout_height="180dp"
+        android:layout_weight="0.2"
+        android:id="@+id/spaceFive"
+        android:text = "\n\n\n\n\nL"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
 
-    <ImageView
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_weight="0.15"
         android:id="@+id/rectangleFive"
         android:background="@drawable/rectangle"
-        />
+        android:text = "L"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-    <Space
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"/>
+        android:layout_height="180dp"
+        android:layout_weight="0.2"
+        android:id="@+id/spaceSix"
+        android:text = "\n\n\n\n\nV"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_weight="0.15"
+        android:id="@+id/rectangleSix"
+        android:background="@color/orange"
+        android:text = "E"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_weight="0.2"
+        android:id="@+id/spaceSeven"
+        android:text = "\n\n\n\n\nE"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
 
 
 

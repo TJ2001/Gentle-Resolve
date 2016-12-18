@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.LinearLayout;
 
 import com.example.tim.gentleresolve.R;
@@ -29,37 +30,40 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void StartAnimations() {
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
-        anim.reset();
+        Animation fromBottom = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        fromBottom.reset();
         Animation fromTop =  AnimationUtils.loadAnimation(this, R.anim.alpha);
         fromTop.reset();
         LinearLayout rectangles = (LinearLayout) findViewById(R.id.lin_lay);
         rectangles.clearAnimation();
-        rectangles.startAnimation(anim);
+        rectangles.startAnimation(fromBottom);
         rectangles.startAnimation(fromTop);
 
-        anim = AnimationUtils.loadAnimation(this, R.anim.translate);
-        anim.reset();
+        fromBottom = AnimationUtils.loadAnimation(this, R.anim.translate);
+        fromBottom.reset();
 
         fromTop = AnimationUtils.loadAnimation(this, R.anim.translate_top);
         fromTop.reset();
 
-        ImageView rectangleOne = (ImageView) findViewById(R.id.rectangleOne);
+        TextView rectangleOne = (TextView) findViewById(R.id.rectangleOne);
         rectangleOne.clearAnimation();
         rectangleOne.startAnimation(fromTop);
-        ImageView rectangleTwo = (ImageView) findViewById(R.id.rectangleTwo);
+        TextView rectangleTwo = (TextView) findViewById(R.id.rectangleTwo);
         rectangleTwo.clearAnimation();
-        rectangleTwo.startAnimation(anim);
-        ImageView rectangleThree = (ImageView) findViewById(R.id.rectangleThree);
+        rectangleTwo.startAnimation(fromBottom);
+        TextView rectangleThree = (TextView) findViewById(R.id.rectangleThree);
         rectangleThree.clearAnimation();
         rectangleThree.startAnimation(fromTop);
 
-        ImageView rectangleFour = (ImageView) findViewById(R.id.rectangleFour);
+        TextView rectangleFour = (TextView) findViewById(R.id.rectangleFour);
         rectangleFour.clearAnimation();
-        rectangleFour.startAnimation(anim);
-        ImageView rectangleFive = (ImageView) findViewById(R.id.rectangleFive);
+        rectangleFour.startAnimation(fromBottom);
+        TextView rectangleFive = (TextView) findViewById(R.id.rectangleFive);
         rectangleFive.clearAnimation();
         rectangleFive.startAnimation(fromTop);
+        TextView rectangleSix = (TextView) findViewById(R.id.rectangleSix);
+        rectangleSix.clearAnimation();
+        rectangleSix.startAnimation(fromBottom);
 
 
         splashTread = new Thread() {
