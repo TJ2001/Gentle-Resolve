@@ -30,6 +30,8 @@
             android:id="@+id/meetupImageView"
             android:src="@drawable/meetup"
             android:scaleType="fitCenter"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"

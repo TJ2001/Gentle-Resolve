@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main_ui.StartActivity">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/achievements"
+        android:id="@+id/achieveButton"
+        android:layout_alignParentTop="true"
+        android:background="@color/yellow"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/splash2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/gentle_resolve"
+        android:id="@+id/textView2"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="45sp"
+        android:layout_below="@+id/achieveButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/orange"
+        android:textColorHighlight="@color/abc_background_cache_hint_selector_material_dark" />
+
+
+
+
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/textView2"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="100dp">
+
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="75dp"
+                    android:text="My\nTeam"
+                    android:textStyle="bold"
+                    android:id="@+id/savedSuppportButton"
+                    android:background="@color/yellow"
+                    android:visibility="visible"
+                    android:textColor="@color/purple"
+                    android:layout_below="@+id/findSupportButton"
+                    android:layout_alignLeft="@+id/findSupportButton"
+                    android:layout_alignStart="@+id/findSupportButton" />
+
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="75dp"
+                    android:text="Find\nSupport"
+                    android:id="@+id/findSupportButton"
+                    android:background="@color/purple"
+                    android:visibility="visible"
+                    android:textStyle="bold"
+                    android:textColor="@color/yellow"
+                    android:layout_marginLeft="96dp"
+                    android:layout_marginStart="96dp"
+                    android:layout_alignTop="@+id/inMotionButton"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <Button
+                    android:text="In\nMotion"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="28dp"
+                    android:id="@+id/inMotionButton"
+                    android:background="@color/darkBlue"
+                    android:layout_width="120dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/orange"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignLeft="@+id/startButton"
+                    android:layout_alignStart="@+id/startButton" />
+
+                <Button
+                    android:text="Create \nVision"
+                    android:id="@+id/startButton"
+                    android:background="@color/orange"
+                    android:layout_width="120dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="76dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/darkBlue"
+                    android:layout_alignTop="@+id/savedSuppportButton"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="76dp" />
+
+        </RelativeLayout>
+
+
+</RelativeLayout>
