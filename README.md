@@ -1,4 +1,4 @@
-# Gentle Resolve
+g# Gentle Resolve
 
 #### _This application will enable users to set personal goals. The user will be able to customize those personal goals via selecting fonts, font-size, and color. They will be able to support for their goals via Meetup API and announce their goals world-wide via twitter api {November 18, 2016}_
 
@@ -26,9 +26,11 @@ _The purpose of this application will be to exemplify things taught in the Epico
 |User will be able to push a button to get support from the community. | API call to Meetup.  | Data output will be received from Meetup and displayed to the user. |
 |This a project in progress and more things will be incorporated according to time resources. | ... | ... |
 
-## Patch Notes 1.01 (code name: epsilon)
+## Patch Notes 1.01 (code name: FoxTrot)
 
 _Add drag reorder and swipe delete for saved meetups._
+_New animated splash screen for a more stylish load._
+_New horizontal layout for Meetup detail view._
 
 
 ## Known Bugs
