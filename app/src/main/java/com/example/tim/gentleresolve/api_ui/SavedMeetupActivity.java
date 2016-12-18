@@ -9,15 +9,12 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.adapters.FirebaseMeetupListAdapter;
-import com.example.tim.gentleresolve.adapters.FirebaseMeetupViewHolder;
+import com.example.tim.gentleresolve.adapters.MeetupListAdapter;
 import com.example.tim.gentleresolve.models.Meetup;
 import com.example.tim.gentleresolve.util.OnStartDragListener;
 import com.example.tim.gentleresolve.util.SimpleItemTouchHelperCallback;
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
@@ -47,7 +44,7 @@ public class SavedMeetupActivity extends AppCompatActivity implements OnStartDra
                 .child(uid)
                 .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
-        mFirebaseAdapter = new FirebaseMeetupListAdapter(Meetup.class, R.layout.meetup_list_item_drag, FirebaseMeetupViewHolder.class, query, this, this);
+        mFirebaseAdapter = new FirebaseMeetupListAdapter(Meetup.class, R.layout.meetup_list_item_drag, MeetupListAdapter.class, query, this, this);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

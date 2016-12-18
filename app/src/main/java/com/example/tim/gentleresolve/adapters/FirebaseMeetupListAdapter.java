@@ -22,7 +22,7 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class FirebaseMeetupListAdapter extends FirebaseRecyclerAdapter<Meetup, FirebaseMeetupViewHolder> implements ItemTouchHelperAdapter{
+public class FirebaseMeetupListAdapter extends FirebaseRecyclerAdapter<Meetup, MeetupListAdapter> implements ItemTouchHelperAdapter{
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
@@ -30,7 +30,7 @@ public class FirebaseMeetupListAdapter extends FirebaseRecyclerAdapter<Meetup, F
     private ArrayList<Meetup> mMeetups = new ArrayList<>();
 
     public FirebaseMeetupListAdapter(Class<Meetup> modelClass, int modelLayout,
-                                     Class<FirebaseMeetupViewHolder> viewHolderClass,
+                                     Class<MeetupListAdapter> viewHolderClass,
                                      Query ref, OnStartDragListener onStartDragListener, Context context) {
         super(modelClass, modelLayout, viewHolderClass, ref);
         mRef = ref.getRef();
@@ -67,7 +67,7 @@ public class FirebaseMeetupListAdapter extends FirebaseRecyclerAdapter<Meetup, F
     }
 
     @Override
-    protected void populateViewHolder(final FirebaseMeetupViewHolder viewHolder, Meetup model, int position) {
+    protected void populateViewHolder(final MeetupListAdapter viewHolder, Meetup model, int position) {
         viewHolder.bindMeetup(model);
         viewHolder.mMeetupImageView.setOnTouchListener(new View.OnTouchListener() {
 
