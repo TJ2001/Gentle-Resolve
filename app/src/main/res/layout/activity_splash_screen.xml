@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_gravity="center"
+    android:id="@+id/lin_lay"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_weight="0.15"
+        android:id="@+id/rectangleOne"
+        android:background="@drawable/rectangle"
+        android:layout_gravity="center_vertical" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_weight="0.15"
+        android:id="@+id/rectangleTwo"
+        android:background="@color/orange" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_weight="0.15"
+        android:id="@+id/rectangleThree"
+        android:background="@drawable/rectangle" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_weight="0.15"
+        android:id="@+id/rectangleFour"
+        android:background="@color/orange" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_weight="0.15"
+        android:id="@+id/rectangleFive"
+        android:background="@drawable/rectangle"
+        />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"/>
+
+
+
+
+</LinearLayout>
+
