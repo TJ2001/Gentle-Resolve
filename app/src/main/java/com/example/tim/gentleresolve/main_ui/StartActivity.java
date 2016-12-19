@@ -17,7 +17,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.achieveButton) Button mAchieveButton;
     @Bind(R.id.startButton) Button mStartButton;
     @Bind(R.id.savedSuppportButton) Button mSavedSuppportButton;
     @Bind(R.id.findSupportButton) Button mFindSupportButton;
@@ -28,7 +27,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         ButterKnife.bind(this);
-        mAchieveButton.setOnClickListener(this);
         mStartButton.setOnClickListener(this);
         mSavedSuppportButton.setOnClickListener(this);
         mFindSupportButton.setOnClickListener(this);
@@ -37,9 +35,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v){
-        if(v == mAchieveButton){
-            startActivity(new Intent(StartActivity.this, AchievementsActivity.class));
-        } else if (v == mStartButton){
+        if (v == mStartButton){
             startActivity(new Intent(StartActivity.this, CreateActivity.class));
         } else if (v == mSavedSuppportButton){
             Intent intent = new Intent(StartActivity.this, SavedMeetupActivity.class);
