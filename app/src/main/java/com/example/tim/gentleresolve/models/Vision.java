@@ -8,13 +8,12 @@ import java.util.ArrayList;
  * Created by TJ2001 on 12/13/2016.
  */
 public class Vision {
-    public String name, pushId, index;
+    public String name, pushId;
 
     public Vision() {}
 
     public Vision(String name) {
         this.name = name;
-//        this.index = "not_specified";
     }
 
     public String getName() {
@@ -29,11 +28,4 @@ public class Vision {
         this.pushId = pushId;
     }
 
-    public String getIndex() {
-        return index;
-    }
-
-    public void setIndex(String index) {
-        this.index = index;
-    }
 }

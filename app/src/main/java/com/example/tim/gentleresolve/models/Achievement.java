@@ -1,17 +1,15 @@
 package com.example.tim.gentleresolve.models;
 
 public class Achievement {
-    public String name;
-    public String pushId;
-//    public String index;
-
-    public Achievement(String name) {
-        this.name = name;
-//        this.index = "not_specified";
-    }
+    public String name, pushId;
 
     public Achievement() {
     }
+
+    public Achievement(String name) {
+        this.name = name;
+    }
+
 
     public String getName() {
         return name;

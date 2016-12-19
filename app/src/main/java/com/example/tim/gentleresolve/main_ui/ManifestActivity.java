@@ -93,25 +93,6 @@ public class ManifestActivity extends AppCompatActivity {
             }
         });
 
-        mAchievementReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_VISIONS);
-
-        mAchievementReferenceReferenceListener = mAchievementReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot achievementSnapshot : dataSnapshot.getChildren()) {
-                    String achievement = achievementSnapshot.getValue().toString();
-                    Log.d("Interest updated", "vision: " + achievement);
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
-
         mVisionFirebaseListAdapter = new FirebaseListAdapter<Vision>(this, Vision.class, R.layout.list_item, mVisionReference) {
 
             @Override
@@ -122,6 +103,27 @@ public class ManifestActivity extends AppCompatActivity {
         };
 
         mListView.setAdapter(mVisionFirebaseListAdapter);
+
+
+//       setting listener for storing achievements into firebase
+
+        mAchievementReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_VISIONS);
+
+        mAchievementReferenceReferenceListener = mAchievementReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot achievementSnapshot : dataSnapshot.getChildren()) {
+                    String achievement = achievementSnapshot.getValue().toString();
+                    Log.d("Interest updated", "achievement: " + achievement);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
