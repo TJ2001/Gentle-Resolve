@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
+import com.example.tim.gentleresolve.models.Achievement;
 import com.example.tim.gentleresolve.models.Vision;
 
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -37,6 +38,8 @@ public class ManifestActivity extends AppCompatActivity {
     private ValueEventListener mVisionReferenceListener;
     private ChildEventListener mChildEventListener;
     private ArrayList<Vision> mVisions = new ArrayList<>();
+    private ValueEventListener mAchievementReferenceReferenceListener;
+    private DatabaseReference mAchievementReference;
 
     @Bind(R.id.supportButton)
     Button mSupportButton;
@@ -90,13 +93,30 @@ public class ManifestActivity extends AppCompatActivity {
             }
         });
 
+        mAchievementReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_VISIONS);
+
+        mAchievementReferenceReferenceListener = mAchievementReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot achievementSnapshot : dataSnapshot.getChildren()) {
+                    String achievement = achievementSnapshot.getValue().toString();
+                    Log.d("Interest updated", "vision: " + achievement);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
 
         mVisionFirebaseListAdapter = new FirebaseListAdapter<Vision>(this, Vision.class, R.layout.list_item, mVisionReference) {
 
             @Override
             protected void populateView(View v, Vision model, int position) {
                 ((TextView) v.findViewById(R.id.itemTextView)).setText(model.getName());
-
                 model.setPushId(getRef(position).getKey());
             }
         };
@@ -106,8 +126,10 @@ public class ManifestActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Vision vision = mVisions.get(position);
+                saveToFirebaseAchievements(vision.getName());
                 Log.v("LogV", "postion " + position);
-                mVisionReference.removeValue();
+                mVisionReference.child(vision.getPushId()).removeValue();
             }
         });
 
@@ -124,5 +146,23 @@ public class ManifestActivity extends AppCompatActivity {
         super.onDestroy();
         mVisionReference.removeEventListener(mChildEventListener);
 
+    }
+
+    private void saveToFirebaseAchievements(String achievement) {
+        Achievement mAchievement = new Achievement(achievement);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        DatabaseReference mRef = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_ACHIEVEMENTS)
+                .child(uid);
+
+        DatabaseReference pushRef = mRef.push();
+        String pushId = pushRef.getKey();
+        mAchievement.setPushId(pushId);
+        pushRef.setValue(mAchievement);
+
+        mAchievementReference.push().setValue(mAchievement);
     }
 }
