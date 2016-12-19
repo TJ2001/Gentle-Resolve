@@ -22,16 +22,12 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-/**
- * Created by TJ2001 on 12/18/2016.
- */
 public class FirebaseVisionsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
     View mView;
     Context mContext;
-
 
     public FirebaseVisionsViewHolder(View itemView) {
         super(itemView);

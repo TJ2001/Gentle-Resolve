@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
+import com.example.tim.gentleresolve.models.Achievement;
 import com.example.tim.gentleresolve.models.Vision;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,52 +22,56 @@ import com.google.firebase.database.ValueEventListener;
 import butterknife.Bind;
 
 public class AchievementsActivity extends AppCompatActivity {
-//    private DatabaseReference mAchievementReference;
-//    private FirebaseListAdapter<Vision> mAchievement;
-//
-//    @Bind(R.id.achievementListView)
-//    ListView mListView;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_achievements);
-//
-//
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String uid = user.getUid();
-//
-//        mAchievementReference = FirebaseDatabase
-//                .getInstance()
-//                .getReference(Constants.FIREBASE_CHILD_VISIONS)
-//                .child(uid);
-//
-//        mAchievementReferenceListener = mAchievementReference.addValueEventListener(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {}
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {}
-//        });
-//
-//        mAchievement = new FirebaseListAdapter<Vision>(this, Vision.class, R.layout.list_item, mAchievementReference) {
-//
-//            @Override
-//            protected void populateView(View v, Vision model, int position) {
-//                ((TextView)v.findViewById(R.id.itemTextView)).setText(model.getName());
-//
-//                model.setPushId(getRef(position).getKey());
-//            }
-//        };
-//
-//        mListView.setAdapter(mAchievement);
-//
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        mAchievementReference.removeEventListener(mAchievementReferenceListener);
-//    }
+    private DatabaseReference mAchievementReference;
+    private FirebaseListAdapter<Achievement> mAchievement;
+    private ValueEventListener mAchievementReferenceListener;
+
+    @Bind(R.id.achievementListView)
+    ListView mListView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_achievements);
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mAchievementReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_VISIONS)
+                .child(uid);
+
+        mAchievementReferenceListener = mAchievementReference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {}
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+
+        mAchievement = new FirebaseListAdapter<Achievement>(this, Achievement.class, R.layout.list_item, mAchievementReference) {
+
+            @Override
+            protected void populateView(View v, Achievement model, int position) {
+                ((TextView)v.findViewById(R.id.visionTextView)).setText(model.getName());
+
+                model.setPushId(getRef(position).getKey());
+            }
+        };
+
+        mListView.setAdapter(mAchievement);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mAchievementReference.removeEventListener(mAchievementReferenceListener);
+    }
+
+
 }
