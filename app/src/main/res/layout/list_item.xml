@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/itemTextView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_weight=".7"
         android:text="TextView"
         android:background="@color/yellow"
         android:textSize="30sp"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        />
 
-
-</RelativeLayout>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight=".3"
+        android:id="@+id/meetupImageView"
+        android:src="@drawable/done"
+        android:background="@color/yellow"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:scaleType="centerCrop"
+        />
+</LinearLayout>

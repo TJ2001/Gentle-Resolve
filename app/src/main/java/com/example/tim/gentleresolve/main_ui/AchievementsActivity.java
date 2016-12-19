@@ -52,11 +52,11 @@ public class AchievementsActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {}
         });
 
-        mAchievementFirebaseAdapter = new FirebaseListAdapter<Achievement>(this, Achievement.class, R.layout.list_item, mAchievementReference) {
+        mAchievementFirebaseAdapter = new FirebaseListAdapter<Achievement>(this, Achievement.class, R.layout.list_item2, mAchievementReference) {
 
             @Override
             protected void populateView(View v, Achievement model, int position) {
-                ((TextView)v.findViewById(R.id.itemTextView)).setText(model.getName());
+                ((TextView)v.findViewById(R.id.achievementTextView)).setText(model.getName());
                 model.setPushId(getRef(position).getKey());
             }
         };
