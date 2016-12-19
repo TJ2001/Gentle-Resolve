@@ -1,4 +1,4 @@
-g# Gentle Resolve
+Gentle Resolve
 
 #### _This application will enable users to set personal goals. The user will be able to customize those personal goals via selecting fonts, font-size, and color. They will be able to support for their goals via Meetup API and announce their goals world-wide via twitter api {November 18, 2016}_
 
