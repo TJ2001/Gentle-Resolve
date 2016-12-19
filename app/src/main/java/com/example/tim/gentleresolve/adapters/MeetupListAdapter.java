@@ -2,6 +2,7 @@ package com.example.tim.gentleresolve.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -26,7 +27,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
+public class MeetupListAdapter extends RecyclerView.ViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
     public ImageView mMeetupImageView;
@@ -34,11 +35,11 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
     View mView;
     Context mContext;
 
-    public FirebaseMeetupViewHolder(View itemView) {
+    public MeetupListAdapter(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-//        itemView.setOnClickListener(this);
+
     }
 
     public void bindMeetup(Meetup meetup) {
@@ -59,15 +60,16 @@ public class FirebaseMeetupViewHolder extends RecyclerView.ViewHolder implements
         organizerTextView.setText("Organizer: " + meetup.getOrganizer());
     }
 
-    @Override
-    public void onItemSelected() {
-        Log.d("Animation", "onItemSelected");
-        // we will add animations here
-    }
+//    @Override
+//    public void onItemSelected() {
+//        Log.d("Animation", "onItemSelected");
+//        // we will add animations here
+//    }
+//
+//    @Override
+//    public void onItemClear() {
+//        Log.d("Animation", "onItemClear");
+//        // we will add animations here
+//    }
 
-    @Override
-    public void onItemClear() {
-        Log.d("Animation", "onItemClear");
-        // we will add animations here
-    }
 }

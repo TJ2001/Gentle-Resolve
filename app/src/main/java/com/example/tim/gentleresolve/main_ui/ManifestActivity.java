@@ -1,32 +1,19 @@
 package com.example.tim.gentleresolve.main_ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
-import com.example.tim.gentleresolve.adapters.FirebaseMeetupViewHolder;
 import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
-import com.example.tim.gentleresolve.models.Meetup;
 import com.example.tim.gentleresolve.models.Vision;
 
-import com.firebase.client.Firebase;
 import com.firebase.ui.database.FirebaseListAdapter;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,10 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.parceler.Parcels;
-
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
