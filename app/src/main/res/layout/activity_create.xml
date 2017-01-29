@@ -32,7 +32,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Set A Goal: &quot;I will...&quot;"
-
         android:id="@+id/labelGoal"
         android:background="@color/yellow"
         android:textSize="20sp"
@@ -67,12 +66,12 @@
         android:id="@+id/labelWhy"
         android:background="@color/yellow"
         android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/why1"
-        android:layout_alignStart="@+id/why1"
-        android:layout_marginTop="36dp"
-        android:layout_alignRight="@+id/labelGoal"
-        android:layout_alignEnd="@+id/labelGoal" />
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/vision"
+        android:layout_alignLeft="@+id/labelHow"
+        android:layout_alignStart="@+id/labelHow"
+        android:layout_alignRight="@+id/vision"
+        android:layout_alignEnd="@+id/vision" />
 
 
     <EditText
@@ -81,13 +80,13 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="" android:background="@drawable/blue_border"
         android:id="@+id/why1"
-
         android:singleLine="true"
         android:imeOptions="actionDone"
-        android:layout_alignBaseline="@+id/why3"
-        android:layout_alignBottom="@+id/why3"
+        android:layout_below="@+id/labelWhy"
         android:layout_alignLeft="@+id/labelHow"
-        android:layout_alignStart="@+id/labelHow" />
+        android:layout_alignStart="@+id/labelHow"
+        android:layout_alignRight="@+id/labelWhy"
+        android:layout_alignEnd="@+id/labelWhy" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -97,10 +96,11 @@
         android:id="@+id/why2"
         android:singleLine="true"
         android:imeOptions="actionDone"
-        android:layout_alignBelow="id/why1"
-        android:layout_above="@+id/why3"
-        android:layout_alignRight="@+id/vision"
-        android:layout_alignEnd="@+id/vision" />
+        android:layout_below="@+id/why1"
+        android:layout_alignLeft="@+id/labelHow"
+        android:layout_alignStart="@+id/labelHow"
+        android:layout_alignRight="@+id/why1"
+        android:layout_alignEnd="@+id/why1" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -108,38 +108,39 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="" android:background="@drawable/blue_border"
         android:id="@+id/why3"
-        android:layout_marginTop="49dp"
         android:singleLine="true"
-        android:imeOptions="actionDone"
-        android:layout_alignBelow="id/why2"
-        android:layout_below="@+id/labelWhy"
         android:layout_alignLeft="@+id/labelHow"
         android:layout_alignStart="@+id/labelHow"
-        android:layout_toLeftOf="@+id/why2"
-        android:layout_toStartOf="@+id/why2" />
+        android:imeOptions="actionDone"
+        android:layout_below="@+id/why2"
+        android:layout_alignRight="@+id/why2"
+        android:layout_alignEnd="@+id/why2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set A Goal: &quot;I will...&quot;"
+        android:text="How"
         android:id="@+id/labelHow"
-        android:background="@color/yellow"
+        android:background="@color/darkBlue"
         android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/how"
-        android:layout_alignStart="@+id/how"
-        android:layout_marginTop="36dp"
-        android:layout_alignRight="@+id/how"
-        android:layout_alignEnd="@+id/how" />
+        android:layout_above="@+id/how"
+        android:layout_alignLeft="@+id/vision"
+        android:layout_alignStart="@+id/vision"
+        android:layout_alignRight="@+id/vision"
+        android:layout_alignEnd="@+id/vision"
+        />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="" android:background="@drawable/blue_border"
-        android:id="@+id/how" />
+        android:id="@+id/how"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/vision"
+        android:layout_alignStart="@+id/vision"
+        android:layout_alignRight="@+id/vision"
+        android:layout_alignEnd="@+id/vision" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -149,7 +150,8 @@
         android:background="@color/yellow"
         android:textSize="20sp"
         android:layout_above="@+id/when"
-        android:layout_toRightOf="@+id/labelHow"
+        android:layout_alignLeft="@+id/labelHow"
+        android:layout_alignStart="@+id/labelHow"
         android:layout_alignRight="@+id/when"
         android:layout_alignEnd="@+id/when" />
 
@@ -162,7 +164,8 @@
         android:singleLine="true"
         android:imeOptions="actionDone"
         android:layout_above="@+id/manifestButton"
-        android:layout_toRightOf="@+id/labelHow"
+        android:layout_alignLeft="@+id/labelHow"
+        android:layout_alignStart="@+id/labelHow"
         android:layout_alignRight="@+id/why2"
         android:layout_alignEnd="@+id/why2" />
 
