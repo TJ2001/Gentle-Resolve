@@ -29,6 +29,13 @@ public class CreateActivity extends AppCompatActivity {
 
     @Bind(R.id.manifestButton) Button mManifestButton;
     @Bind(R.id.vision) EditText mVision;
+    @Bind(R.id.why1) EditText mWhy1;
+    @Bind(R.id.why2) EditText mWhy2;
+    @Bind(R.id.why3) EditText mWhy3;
+    @Bind(R.id.how) EditText mHow;
+    @Bind(R.id.when) EditText mWhen;
+
+
 //    private ArrayList<String> visions = new ArrayList<>();
 
     public static final String TAG = CreateActivity.class.getSimpleName();
@@ -60,14 +67,19 @@ public class CreateActivity extends AppCompatActivity {
         mManifestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String vision = mVision.getText().toString();
-                if ((vision.length() < 3)) {
+                String name = mVision.getText().toString();
+                String why1 = mWhy1.getText().toString();
+                String why2 = mWhy2.getText().toString();
+                String why3 = mWhy3.getText().toString();
+                String how = mHow.getText().toString();
+                String when = mWhen.getText().toString();
+                if ((name.length() < 3)) {
                     Toast.makeText(CreateActivity.this, "Our visions need to be more detailed. Good effort, but please try again.", Toast.LENGTH_LONG).show();
                 }else{
                     mVision.setText("");
                     Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
                     Log.v(TAG, "intent: " + intent);
-                    saveToFirebase(vision);
+                    saveToFirebase(name, why1, why2, why3, how, when);
                     startActivity(intent);
                 }
 
@@ -81,8 +93,8 @@ public class CreateActivity extends AppCompatActivity {
         mVisionReference.removeEventListener(mVisionReferenceReferenceListener);
     }
 
-    private void saveToFirebase(String vision) {
-        Vision mVision = new Vision(vision);
+    private void saveToFirebase(String name, String why1, String why2, String why3, String how, String when) {
+        Vision mVision = new Vision(name, why1, why2, why3, how, when);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
