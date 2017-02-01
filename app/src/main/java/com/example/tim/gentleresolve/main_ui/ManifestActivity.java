@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import com.example.tim.gentleresolve.Constants;
 import com.example.tim.gentleresolve.R;
 import com.example.tim.gentleresolve.api_ui.FindSupportActivity;
+import com.example.tim.gentleresolve.api_ui.ResultsDetailActivity;
+import com.example.tim.gentleresolve.api_ui.ResultsListActivity;
 import com.example.tim.gentleresolve.models.Achievement;
 import com.example.tim.gentleresolve.models.Vision;
 
@@ -25,6 +28,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -141,6 +146,20 @@ public class ManifestActivity extends AppCompatActivity {
                 startActivity(new Intent(ManifestActivity.this, FindSupportActivity.class));
             }
         });
+
+//        =====
+        ArrayAdapter adapter = new ArrayAdapter(ResultsListActivity.this,
+                android.R.layout.simple_list_item_1, groupNames);
+        mListView.setAdapter(adapter);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Intent intent = new Intent(view.getContext(), ResultsDetailActivity.class);
+                intent.putExtra("position", position);
+                intent.putExtra("meetups", Parcels.wrap(mMeetups));
+                view.getContext().startActivity(intent);
+//        =======
     }
 
     @Override

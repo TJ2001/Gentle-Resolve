@@ -5,168 +5,134 @@
     android:layout_height="match_parent"
     tools:context=".main_ui.ManifestActivity">
 
-
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/imageView4"
-        android:src="@drawable/splash3"
+        android:src="@color/orange"
         android:scaleType="centerCrop"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:text="Manifest"
-        android:paddingBottom="10dp"
-        android:id="@+id/manifestButton"
-        android:background="@drawable/blue_button"
-        android:textStyle="bold"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:id="@+id/linearLayout"
+        android:layout_marginBottom="63dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Set A Goal: &quot;I will...&quot;"
         android:id="@+id/labelGoal"
-        android:background="@color/yellow"
+        android:background="@color/blue"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/vision"
-        android:layout_alignStart="@+id/vision"
-        android:layout_marginTop="36dp"
-        android:layout_alignRight="@+id/vision"
-        android:layout_alignEnd="@+id/vision" />
+        android:padding="10dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:padding="10dp"
+        android:textSize="20sp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="" android:background="@drawable/blue_border"
+        android:text="" android:background="@android:color/white"
         android:id="@+id/vision"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="63dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:singleLine="true"
         android:imeOptions="actionDone" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Why?"
         android:id="@+id/labelWhy"
-        android:background="@color/yellow"
+        android:background="@color/blue"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/vision"
-        android:layout_alignLeft="@+id/labelHow"
-        android:layout_alignStart="@+id/labelHow"
-        android:layout_alignRight="@+id/vision"
-        android:layout_alignEnd="@+id/vision" />
+        android:padding="10dp" />
 
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="" android:background="@drawable/blue_border"
-        android:id="@+id/why1"
+        android:text="" android:background="@android:color/white"
+        android:id="@+id/why"
         android:singleLine="true"
         android:imeOptions="actionDone"
-        android:layout_below="@+id/labelWhy"
-        android:layout_alignLeft="@+id/labelHow"
-        android:layout_alignStart="@+id/labelHow"
-        android:layout_alignRight="@+id/labelWhy"
-        android:layout_alignEnd="@+id/labelWhy" />
+        android:padding="10dp"
+        android:textSize="20sp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="" android:background="@drawable/blue_border"
-        android:id="@+id/why2"
-        android:singleLine="true"
-        android:imeOptions="actionDone"
-        android:layout_below="@+id/why1"
-        android:layout_alignLeft="@+id/labelHow"
-        android:layout_alignStart="@+id/labelHow"
-        android:layout_alignRight="@+id/why1"
-        android:layout_alignEnd="@+id/why1" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="" android:background="@drawable/blue_border"
-        android:id="@+id/why3"
-        android:singleLine="true"
-        android:layout_alignLeft="@+id/labelHow"
-        android:layout_alignStart="@+id/labelHow"
-        android:imeOptions="actionDone"
-        android:layout_below="@+id/why2"
-        android:layout_alignRight="@+id/why2"
-        android:layout_alignEnd="@+id/why2" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="How"
+        android:text="How?"
         android:id="@+id/labelHow"
-        android:background="@color/darkBlue"
+        android:background="@color/blue"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:layout_above="@+id/how"
-        android:layout_alignLeft="@+id/vision"
-        android:layout_alignStart="@+id/vision"
-        android:layout_alignRight="@+id/vision"
-        android:layout_alignEnd="@+id/vision"
-        />
+        android:padding="10dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="" android:background="@drawable/blue_border"
+        android:singleLine="true"
         android:id="@+id/how"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/vision"
-        android:layout_alignStart="@+id/vision"
-        android:layout_alignRight="@+id/vision"
-        android:layout_alignEnd="@+id/vision" />
+        android:textSize="20sp"
+        android:padding="10dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="When"
+        android:text="When?"
         android:id="@+id/labelWhen"
-        android:background="@color/yellow"
+        android:background="@color/blue"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:layout_above="@+id/when"
-        android:layout_alignLeft="@+id/labelHow"
-        android:layout_alignStart="@+id/labelHow"
-        android:layout_alignRight="@+id/when"
-        android:layout_alignEnd="@+id/when" />
+        android:padding="10dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="" android:background="@drawable/blue_border"
         android:id="@+id/when"
         android:singleLine="true"
-        android:imeOptions="actionDone"
-        android:layout_above="@+id/manifestButton"
-        android:layout_alignLeft="@+id/labelHow"
-        android:layout_alignStart="@+id/labelHow"
-        android:layout_alignRight="@+id/why2"
-        android:layout_alignEnd="@+id/why2" />
+        android:textSize="20sp"
+        android:padding="10dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:text="Manifest"
+        android:paddingBottom="10dp"
+        android:id="@+id/manifestButton"
+        android:background="@color/darkBlue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"/>
+
 
 </RelativeLayout>

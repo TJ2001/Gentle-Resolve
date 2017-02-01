@@ -29,9 +29,7 @@ public class CreateActivity extends AppCompatActivity {
 
     @Bind(R.id.manifestButton) Button mManifestButton;
     @Bind(R.id.vision) EditText mVision;
-    @Bind(R.id.why1) EditText mWhy1;
-    @Bind(R.id.why2) EditText mWhy2;
-    @Bind(R.id.why3) EditText mWhy3;
+    @Bind(R.id.why) EditText mWhy;
     @Bind(R.id.how) EditText mHow;
     @Bind(R.id.when) EditText mWhen;
 
@@ -68,9 +66,7 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = mVision.getText().toString();
-                String why1 = mWhy1.getText().toString();
-                String why2 = mWhy2.getText().toString();
-                String why3 = mWhy3.getText().toString();
+                String why = mWhy.getText().toString();
                 String how = mHow.getText().toString();
                 String when = mWhen.getText().toString();
                 if ((name.length() < 3)) {
@@ -79,7 +75,7 @@ public class CreateActivity extends AppCompatActivity {
                     mVision.setText("");
                     Intent intent = new Intent(CreateActivity.this, ManifestActivity.class);
                     Log.v(TAG, "intent: " + intent);
-                    saveToFirebase(name, why1, why2, why3, how, when);
+                    saveToFirebase(name, why, how, when);
                     startActivity(intent);
                 }
 
@@ -93,8 +89,8 @@ public class CreateActivity extends AppCompatActivity {
         mVisionReference.removeEventListener(mVisionReferenceReferenceListener);
     }
 
-    private void saveToFirebase(String name, String why1, String why2, String why3, String how, String when) {
-        Vision mVision = new Vision(name, why1, why2, why3, how, when);
+    private void saveToFirebase(String name, String why, String how, String when) {
+        Vision mVision = new Vision(name, why, how, when);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
