@@ -6,7 +6,7 @@ Gentle Resolve
 
 ## Description
 
-_The purpose of this application will be to exemplify things taught in the Epicodus Android curriculum. It will also empower users to by helping people express themselves in a more beautiful way. People should be able to write down their dreams in a compelling and meaningful way._
+_The purpose of this application will be to exemplify skills in Android development as well Java in general. It will also empower users to by helping people express themselves in a more beautiful way. People should be able to write down their dreams in a compelling and meaningful way._
 
 ## Setup/Installation Requirements
 
