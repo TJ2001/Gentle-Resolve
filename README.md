@@ -49,4 +49,4 @@ _Java, Gradle, and Android SDK._
 
 *This software is licensed under the MIT license*
 
-CC Copyright (c) 2016
+CC Copyright (c) 2017
